@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="ERPSystem.Views.BlockView.BlockInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:ERPSystem.Converters"
+             xmlns:local="clr-namespace:ERPSystem.Views.BlockView"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+    
+    <UserControl.Resources>
+        <converters:NegatableBooleanToVisibilityConverter x:Key="VisConverter"/>
+        <converters:NegatableBooleanToVisibilityConverter x:Key="NegVisConverter"
+                                                          Negate="True"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" BorderBrush="{StaticResource LineBrush}" BorderThickness="1,0,1,0">
+            <Grid Margin="10">
+                <StackPanel Orientation="Vertical" Margin="10,10,0,0" HorizontalAlignment="Left">
+                    <Border BorderBrush="{StaticResource LineBrush}" BorderThickness="1" Margin="0,0,0,20" MinWidth="200">
+                        <TextBlock Text="Блок" Foreground="{StaticResource TextBrush}" FontSize="16" HorizontalAlignment="Center" Margin="5"/>
+                    </Border>
+                    <TextBlock Text="Название" Foreground="{StaticResource TextBrush}" Margin="0,10" HorizontalAlignment="Center"/>
+
+                    <Border BorderBrush="{StaticResource LineBrush}" BorderThickness="0,1,0,1" 
+                            Visibility="{Binding EditMode, Converter={StaticResource NegVisConverter}}">
+                        <TextBlock Text="{Binding CurrentBlock.Name}" Foreground="{StaticResource TextBrush}" Margin="0,10"
+                                   TextWrapping="WrapWithOverflow"/>
+                    </Border>
+                    <TextBox Text="{Binding CurrentBlock.Name}" Foreground="{StaticResource TextBrush}" Width ="200" Margin="0,10"
+                             Visibility="{Binding EditMode, Converter={StaticResource VisConverter}}"
+                             TextWrapping="WrapWithOverflow"/>
+                    
+                    <Button Content="Редактировать" Width="100" Height="30" HorizontalAlignment="Left" Margin="0,10"
+                            Command="{Binding EditBlockCommand}"/>
+                    <Button Content="Сохранить" Width="100" Height="30" HorizontalAlignment="Left" Margin="0,10"
+                            Visibility="{Binding EditMode, Converter={StaticResource VisConverter}}"
+                            Command="{Binding SaveBlockCommand}"/>
+                    <Button Content="Удалить" Width="100" Height="30" HorizontalAlignment="Left" Margin="0,10"
+                            Command="{Binding DeleteBlockCommand}"/>
+                    <Button Content="Назад" Width="100" Height="30" HorizontalAlignment="Left" Margin="0,10"
+                            Command="{Binding BackCommand}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+    </Grid>
+</UserControl>

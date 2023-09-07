@@ -1,0 +1,148 @@
+﻿<Window x:Class="ERPSystem.Views.StockMovementView.AddEditStockMovementView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ERPSystem.Views.StockMovementView"
+        xmlns:converters="clr-namespace:ERPSystem.Converters"
+        mc:Ignorable="d"
+        Title="AddEditStockMovementView" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        Background="{StaticResource BackgroundBrush}"
+        Width="350"
+        Height="400">
+
+    <Window.Resources>
+        <converters:NegatableBooleanToVisibilityConverter x:Key="VisConverter"/>
+    </Window.Resources>
+
+    <Border BorderThickness=".5" BorderBrush="{StaticResource LineBrush}">
+        <Grid HorizontalAlignment="Center" Grid.IsSharedSizeScope="True" Margin="50">
+
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="0.5"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource TextBrush}"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                    <Setter Property="CaretBrush" Value="{StaticResource TextBrush}"/>
+                </Style>
+
+
+            </Grid.Resources>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="LabelColumn"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Description"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               Margin="3"
+                               VerticalAlignment="Center"/>
+                        <TextBox x:Name="descriptionTextBox"
+                                 Grid.Column="1"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 Height="46"
+                                 Width="120"
+                                 Margin="3"
+                                 TextWrapping="Wrap"
+                                 Text="{Binding StockMovement.Description}"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="LabelColumn"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Material"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               Margin="3"
+                               VerticalAlignment="Center"/>
+                        <ComboBox Grid.Column="1"
+                                  Margin="10" 
+                                  ItemsSource="{Binding Materials}"
+                                  SelectedValuePath="Id"
+                                  SelectedValue="{Binding StockMovement.MaterialId}"
+                                  DisplayMemberPath="Name"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="LabelColumn"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Movement Type"
+                        Grid.Column="0"
+                        HorizontalAlignment="Left"
+                        Margin="3"
+                        VerticalAlignment="Center"/>
+                        <ComboBox
+                        Grid.Column="1"
+                        Margin="10" 
+                        ItemsSource="{Binding StockMovementTypes}"
+                        SelectedValue="{Binding StockMovement.MovementType}"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="LabelColumn"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="Quantity"
+                               Grid.Column="0"
+                               HorizontalAlignment="Left"
+                               Margin="3"
+                               VerticalAlignment="Center"/>
+                        <TextBox x:Name="quantityTextBox"
+                                 Grid.Column="1"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Center"
+                                 Height="23"
+                                 Width="120"
+                                 Margin="3"
+                                 Text="{Binding StockMovement.Quantity}"/>
+                    </Grid>
+
+                    <Grid>
+                        <TextBlock Grid.Row="4" Text="Fill in all the fields" Foreground="Red" HorizontalAlignment="Center" Margin="0,10,0,10"
+                            Visibility="{Binding InputError, Converter={StaticResource VisConverter}}"/>
+                    </Grid>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0,20,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="SaveButton" Grid.Column="0" Content="Save" HorizontalAlignment="Center" Width="80" Height="30" Command="{Binding SaveCommand}"/>
+                <Button x:Name="CancelButton" Grid.Column="1" Content="Cancel" HorizontalAlignment="Center" Width="80" Height="30" Command="{Binding CancelCommand}"/>
+
+            </Grid>
+        </Grid>
+    </Border>
+
+</Window>

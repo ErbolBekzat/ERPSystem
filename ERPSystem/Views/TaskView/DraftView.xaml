@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="ERPSystem.Views.TaskView.DraftView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERPSystem.Views.TaskView"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <!--<Grid Background="#1C1C1C">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal" Margin="10, 0, 0, 0">
+                    <Button Content="Add" Width="60" Height="25" Background="#B3C2F2"
+                        Command="{Binding AddTaskCommand}"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1" x:Name="ContentGrid" Grid.IsSharedSizeScope="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="TitleAndDateGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="60*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ScrollViewer x:Name="ColumnSV" Grid.Column="0" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden">
+                        <Grid x:Name="ColumnGrid">
+
+                        </Grid>
+                    </ScrollViewer>
+
+                    <ScrollViewer x:Name="DateSV" Grid.Column="2" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden">
+                        <StackPanel x:Name="DateSP" Orientation="Horizontal">
+
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+
+
+
+                <Grid Grid.Row="1" x:Name="MainGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="60*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ScrollViewer x:Name="mainSV" Grid.Column="0" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible"
+                          ScrollChanged="mainSV_ScrollChanged">
+                        <Grid x:Name="TaskSheet">
+                            <StackPanel x:Name="sheetStackPanel" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+
+
+                    <GridSplitter x:Name="mainGS"
+                              DragDelta="mainGS_DragDelta"
+                              Grid.Column="1" Width="5" ResizeBehavior="PreviousAndNext"
+                              Background="#74A57F"/>
+
+                    <ScrollViewer Name="canvasSV" Grid.Column="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Visible"
+                          ScrollChanged="canvasSV_ScrollChanged">
+                        <Grid x:Name="CanvasGrid">
+                            <StackPanel x:Name="canvasStackPanel" Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+                            </StackPanel>
+                        </Grid>
+                    </ScrollViewer>
+
+                </Grid>
+            </Grid>
+        </Grid>-->
+    </Grid>
+</UserControl>

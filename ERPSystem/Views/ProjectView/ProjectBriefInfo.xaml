@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="ERPSystem.Views.ProjectView.ProjectBriefInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERPSystem.Views.ProjectView"
+             mc:Ignorable="d" 
+             Height="Auto" Width="Auto">
+
+    <Grid Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+
+        <Grid.Effect>
+            <DropShadowEffect Color="Black" Direction="270" ShadowDepth="5" Opacity="0.7"/>
+        </Grid.Effect>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Width="250" Height="250" VerticalAlignment="Top">
+            <Image Source="/Assets/TestImages/HIGH14542_703083.jpg" Stretch="UniformToFill" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="{StaticResource BackgroundBrush}" Width="250">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="Transparent">
+                <TextBlock Text="{Binding TestString}" Foreground="{StaticResource TextBrush}" FontSize="16" Margin="10"/>
+            </Grid>
+
+            <Grid Background="Transparent" Grid.Row="1" Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Margin="15,10,0,0">
+                    <Run Text="Задачи: " Foreground="{StaticResource TextBrush}"/>
+                    <Run Text="{Binding ProjectTasksCount}" Foreground="{StaticResource TextBrush}"/>
+                </TextBlock>
+                <TextBlock Grid.Row="0" Margin="25,25,0,0">
+                    <Run Text="Подзадачи: " Foreground="{StaticResource TextBrush}"/>
+                    <Run Text="{Binding ProjectSubtasksCount}" Foreground="{StaticResource TextBrush}"/>
+                </TextBlock>
+
+                <TextBlock Grid.Row="1" Margin="15,10,0,0">
+                    <Run Text="Не начато: " Foreground="{StaticResource TextBrush}"/>
+                    <Run Text="{Binding ProjectNotStartedTasksCount}" Foreground="{StaticResource TextBrush}"/>
+                </TextBlock>
+                <TextBlock Grid.Row="1" Margin="25,25,0,0">
+                    <Run Text="Не начато: " Foreground="{StaticResource TextBrush}"/>
+                    <Run Text="{Binding ProjectNotStartedSubtasksCount}" Foreground="{StaticResource TextBrush}"/>
+                </TextBlock>
+
+                <TextBlock Grid.Row="2" Margin="15,10,0,0">
+                    <Run Text="В процессе: " Foreground="{StaticResource TextBrush}"/>
+                    <Run Text="{Binding ProjectInProgressTasksCount}" Foreground="{StaticResource TextBrush}"/>
+                </TextBlock>
+                <TextBlock Grid.Row="2" Margin="25,25,0,0">
+                    <Run Text="В процессе: " Foreground="{StaticResource TextBrush}"/>
+                    <Run Text="{Binding ProjectInProgressSubtasksCount}" Foreground="{StaticResource TextBrush}"/>
+                </TextBlock>
+
+                <TextBlock Grid.Row="3" Margin="15,10,0,0">
+                    <Run Text="Завершено: " Foreground="{StaticResource TextBrush}"/>
+                    <Run Text="{Binding ProjectCompletedTasksCount}" Foreground="{StaticResource TextBrush}"/>
+                </TextBlock>
+                <TextBlock Grid.Row="3" Margin="25,25,0,0">
+                    <Run Text="Завершено: " Foreground="{StaticResource TextBrush}"/>
+                    <Run Text="{Binding ProjectCompletedSubtasksCount}" Foreground="{StaticResource TextBrush}"/>
+                </TextBlock>
+
+                <Line Grid.Column="1" Grid.Row="0" StrokeThickness="5" X1="0" Y1="0" X2="140" Y2="0" Stroke="DarkGray" Margin="10,22,0,0"/>
+                <Line Grid.Column="1" Grid.Row="0" StrokeThickness="3" X1="0" Y1="0" X2="140" Y2="0" Stroke="DarkGray" Margin="10,35,0,0"/>
+
+                <Line Grid.Column="1" Grid.Row="1" StrokeThickness="4" 
+                      X1="0" Y1="0" X2="{Binding ProjectNotStartedTasksCountPercent}" Y2="0" Stroke="Gray" Margin="10,22,0,0"/>
+                <Line Grid.Column="1" Grid.Row="1" StrokeThickness="2" 
+                      X1="0" Y1="0" X2="{Binding ProjectNotStartedSubtasksCountPercent}" Y2="0" Stroke="Gray" Margin="10,35,0,0"/>
+
+                <Line Grid.Column="1" Grid.Row="2" StrokeThickness="4" 
+                      X1="0" Y1="0" X2="{Binding ProjectInProgressTasksCountPercent}" Y2="0" Stroke="CadetBlue" Margin="10,22,0,0"/>
+                <Line Grid.Column="1" Grid.Row="2" StrokeThickness="2" 
+                      X1="0" Y1="0" X2="{Binding ProjectInProgressSubtasksCountPercent}" Y2="0" Stroke="CadetBlue" Margin="10,35,0,0"/>
+
+                <Line Grid.Column="1" Grid.Row="3" StrokeThickness="4" 
+                      X1="0" Y1="0" X2="{Binding ProjectCompletedTasksCountPercent}" Y2="0" Stroke="Green" Margin="10,22,0,0"/>
+                <Line Grid.Column="1" Grid.Row="3" StrokeThickness="2" 
+                      X1="0" Y1="0" X2="{Binding ProjectCompletedSubtasksCountPercent}" Y2="0" Stroke="Green" Margin="10,35,0,0"/>
+
+            </Grid>
+
+            <Grid Grid.Row="2" Background="Transparent" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+                    <Button x:Name="StockBtn" Content="Склад" Width="70" Height="30" Margin="20, 20"/>
+                    <Button x:Name="BlocksBtn" Content="Блоки" Width="70" Height="30" Margin="20, 20"/>
+                </StackPanel>
+
+                <Button x:Name="Info" Content="Инфо" Width="70" Height="30" Grid.Row="1" Margin="10"/>
+
+
+
+
+            </Grid>
+        </Grid>
+        
+    </Grid>
+</UserControl>

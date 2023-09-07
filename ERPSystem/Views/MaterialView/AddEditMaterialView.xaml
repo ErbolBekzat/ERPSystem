@@ -1,0 +1,180 @@
+﻿<Window x:Class="ERPSystem.Views.MaterialView.AddEditMaterialView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:ERPSystem.Views.MaterialView"
+        xmlns:converters="clr-namespace:ERPSystem.Converters"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" 
+        mc:Ignorable="d"
+        Background="{StaticResource BackgroundBrush}"
+        Width="350"
+        Height="450"
+        WindowStyle="None">
+
+    <Window.Resources>
+        <converters:NegatableBooleanToVisibilityConverter x:Key="VisConverter"/>
+        <converters:NegatableBooleanToVisibilityConverter x:Key="NegVisConverter"
+                                                          Negate="True"/>
+    </Window.Resources>
+
+    <Border BorderThickness=".5" BorderBrush="{StaticResource LineBrush}">
+        <Grid Background="{StaticResource BackgroundBrush}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20,50">
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="0.5"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource TextBrush}"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                    <Setter Property="CaretBrush" Value="{StaticResource TextBrush}"/>
+                </Style>
+                <Style TargetType="DatePicker">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="0.5"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                    <Style.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="CaretBrush" Value="{StaticResource TextBrush}"/>
+                            <Setter Property="BorderThickness" Value="0.5"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource TextBrush}"/>
+                        </Style>
+                    </Style.Resources>
+                </Style>
+                <Style TargetType="ComboBox">
+                    <Style.Resources>
+                        <Style TargetType="RibbonTextBox">
+                            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                        </Style>
+                    </Style.Resources>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                </Style>
+
+            </Grid.Resources>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" HorizontalAlignment="Left"
+              Margin="20, 24, 0, 0"
+              VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Name"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   HorizontalAlignment="Left"
+                   Margin="3"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="nameTextBox"
+                     Grid.Column="1"
+                     Grid.Row="0"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Height="23"
+                     Width="150"
+                     Margin="3"
+                     Text="{Binding Material.Name, ValidatesOnNotifyDataErrors=True}"/>
+                <Label Content="Description"
+                   Grid.Column="0"
+                   Grid.Row="1"
+                   HorizontalAlignment="Left"
+                   Margin="3"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="descriptionTextBox"
+                     Grid.Column="1"
+                     Grid.Row="1"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Height="43"
+                     Width="150"
+                     Margin="3"
+                     Text="{Binding Material.Description, ValidatesOnNotifyDataErrors=True}"/>
+                <Label Content="Unit of measure"
+                   Grid.Column="0"
+                   Grid.Row="2"
+                   HorizontalAlignment="Left"
+                   Margin="3"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="ufmTextBox"
+                     Grid.Column="1"
+                     Grid.Row="2"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Height="43"
+                     Width="150"
+                     Margin="3"
+                     Text="{Binding Material.UnitOfMeasure, ValidatesOnNotifyDataErrors=True}"/>
+
+                <Label Content="Price for unit"
+                   Grid.Column="0"
+                   Grid.Row="3"
+                   HorizontalAlignment="Left"
+                   Margin="3"
+                   VerticalAlignment="Center"/>
+                <TextBox x:Name="pfuTextBox"
+                     Grid.Column="1"
+                     Grid.Row="3"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     Height="43"
+                     Width="150"
+                     Margin="3"
+                     Text="{Binding Material.UnitPrice, ValidatesOnNotifyDataErrors=True}"/>
+
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0,30,0,0">
+                <TextBlock Grid.Row="4" Text="Fill in all the fields" Foreground="Red" HorizontalAlignment="Center" Margin="0,10,0,10"
+                            Visibility="{Binding InputError, Converter={StaticResource VisConverter}}"/>
+            </Grid>
+            
+            <Grid Grid.Row="2" HorizontalAlignment="Center" Margin="0,30,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Save"
+                        Command="{Binding SaveCommand}"
+                        Visibility="{Binding EditMode, Converter={StaticResource VisConverter}}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Width="75"
+                        Height="30"
+                        Margin="5,0"/>
+                    <Button Content="Add"
+                        Command="{Binding SaveCommand}"
+                        Visibility="{Binding EditMode, Converter={StaticResource NegVisConverter}}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Width="75"
+                        Height="30"
+                        Margin="5,0"/>
+                    <Button Content="Cancel"
+                        Command="{Binding CancelCommand}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Width="75"
+                        Height="30"
+                        Margin="5,0"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

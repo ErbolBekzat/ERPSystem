@@ -1,0 +1,234 @@
+﻿<Window x:Class="ERPSystem.Views.BlockWorkforceSummaryView.AddEditBlockWorkforceSummaryView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ERPSystem.Views.BlockWorkforceSummaryView"
+        mc:Ignorable="d"
+        Title="AddEditBlockWorkforceSummaryView" Height="750" Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundBrush}">
+    
+    <Grid HorizontalAlignment="Center">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="CaretBrush" Value="{StaticResource TextBrush}"/>
+            </Style>
+            <Style TargetType="Border">
+                <Setter Property="Margin" Value="5,2"/>
+                <Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+                <Setter Property="BorderThickness" Value=".5"/>
+                <Setter Property="CornerRadius" Value="2"/>
+            </Style>
+        </Grid.Resources>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" Width="400">
+            <TextBlock Text="Информация о количестве рабочего персонала на объекте"/>
+            <TextBlock Text="{Binding CurrentBWS.Date, StringFormat={}{0:dd/MM/yyyy}}" />
+            <Grid>
+                <TextBlock Text="Объект" HorizontalAlignment="Left"/>
+                <TextBlock Text="{Binding CurrentBWS.ProjectName}" HorizontalAlignment="Right"/>
+            </Grid>
+            <Grid>
+                <TextBlock Text="Блок" HorizontalAlignment="Left"/>
+                <TextBlock Text="{Binding CurrentBWS.BlockName}" HorizontalAlignment="Right"/>
+            </Grid>
+            <Grid>
+                <TextBlock Text="Ответственный прораб" HorizontalAlignment="Left"/>
+                <TextBlock Text="{Binding CurrentBWS.Foreman}" HorizontalAlignment="Right"/>
+            </Grid>
+            <Grid>
+                <TextBlock Text="Ответственный мастер" HorizontalAlignment="Left"/>
+                <TextBlock Text="{Binding CurrentBWS.LeadWorker}" HorizontalAlignment="Right"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Фронт работы"/>
+                </Border>
+                <Border Width="300">
+                    <TextBlock Text="ФИО бирагидра"/>
+                </Border>
+                <Border Width="135">
+                    <TextBlock Text="Количество рабочих"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Монолитная ж/б конструкция"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.MonolithicReinforcedConcreteForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.MonolithicReinforcedConcrete}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Усиление стен "/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.WallReinforcementForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.WallReinforcement}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Устройство стен из газоблока"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.AeratedBlockWallForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.AeratedBlockWall}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Электромонтажные работы"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.ElectricalInstallationsForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.ElectricalInstallations}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Сантехнические работы"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.PlumbingWorksForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.PlumbingWorks}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Устройство системы вентиляции"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.VentilationSystemInstallationForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.VentilationSystemInstallation}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Штукатурка стен"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.WallPlasteringForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.WallPlastering}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Полусухая стяжка полов"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.SemiDryFloorScreedForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.SemiDryFloorScreed}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Гидроизоляционные работы"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.WaterproofingForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.Waterproofing}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Земляные работы"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.EarthworksForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.Earthworks}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Уборка"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.CleaningForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.Cleaning}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Установка оконныых блоков"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.WindowBlockInstallationForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.WindowBlockInstallation}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Фасад"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.FacadeForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.Facade}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Border Width="250">
+                    <TextBlock Text="Усторойство метал. констр. лифта"/>
+                </Border>
+                <Border Width="300">
+                    <TextBox Text="{Binding CurrentBWS.MetalLiftStructureInstallationForeman}"/>
+                </Border>
+                <Border Width="135">
+                    <TextBox Text="{Binding CurrentBWS.MetalLiftStructureInstallation}"/>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Создать" Width="100" Height="30" Margin="5"
+                    Command="{Binding CreateBWSCommand}"/>
+            <Button Content="Сохранить" Width="100" Height="30" Margin="5" Visibility="Collapsed"/>
+            <Button Content="Отмена" Width="100" Height="30" Margin="5"
+                    Command="{Binding CancelCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

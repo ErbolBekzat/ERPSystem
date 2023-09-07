@@ -1,0 +1,136 @@
+﻿<UserControl x:Class="ERPSystem.Views.UserView.UserListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERPSystem.Views.UserView"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBlock" x:Key="HeaderTextBlockStyle">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="10,5"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Background="{StaticResource BackgroundBrush}"
+                CornerRadius="5"
+                Margin="5,0,5,5">
+            <Grid Margin="10">
+                <Button Content="Add" Width="60" Height="30" Command="{Binding AddUserCommand}"/>
+                <Menu Width="70" Height="30" HorizontalAlignment="Right" Foreground="{StaticResource TextBrush}">
+                    <MenuItem Header="Settings" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Width="70">
+                        <MenuItem Header="_Новая роль" Command="{Binding AddRoleCommand}"/>
+                        <MenuItem Header="_Все роли" Command="{Binding ShowRolesCommand}"/>
+                    </MenuItem>
+                </Menu>
+            </Grid>
+        </Border>
+        
+
+        <Grid Grid.Row="1" Grid.IsSharedSizeScope="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0"
+                    Background="{StaticResource BackgroundBrush}"
+                CornerRadius="5"
+                Margin="5">
+                <Grid x:Name="HeaderGrid" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Buttons"/>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="UserRole"/>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="FirstName"/>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="LastName"/>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Email"/>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="Phone"/>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="LastOnline"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Style="{StaticResource HeaderTextBlockStyle}"
+                               Text="Инфо"/>
+                    <TextBlock Grid.Column="1" Style="{StaticResource HeaderTextBlockStyle}"
+                               Text="Имя"/>
+                    <TextBlock Grid.Column="2" Style="{StaticResource HeaderTextBlockStyle}"
+                               Text="Фамилия"/>
+                    <TextBlock Grid.Column="3" Style="{StaticResource HeaderTextBlockStyle}"
+                               Text="Почта"/>
+                    <TextBlock Grid.Column="4" Style="{StaticResource HeaderTextBlockStyle}"
+                               Text="Номер"/>
+                    <TextBlock Grid.Column="5" Style="{StaticResource HeaderTextBlockStyle}"
+                               Text="Последний раз был онлайн"/>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Margin="5" Background="{StaticResource BackgroundBrush}" CornerRadius="5">
+                <Grid Margin="10">
+                    <ScrollViewer x:Name="Workers" Grid.Column="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible">
+                        <ItemsControl  ItemsSource="{Binding Users}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Margin" Value="5,2"/>
+                                                <Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+                                                <Setter Property="BorderThickness" Value=".5"/>
+                                                <Setter Property="CornerRadius" Value="2"/>
+                                            </Style>
+
+                                        </Grid.Resources>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="Buttons"/>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="UserRole"/>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="FirstName"/>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="LastName"/>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="Email"/>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="Phone"/>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="LastOnline"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                        </Grid.RowDefinitions>
+                                        <Border Grid.Row="0" Grid.Column="0" BorderThickness="0">
+                                            <Button Content="Info" Width="30" Height="25" 
+                                                    Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.UserInfoCommand}"
+                                                    CommandParameter="{Binding }"/>
+                                        </Border>
+
+                                        <Border Grid.Row="0" Grid.Column="1">
+                                            <TextBlock Margin="10,5" Text="{Binding FirstName}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="2">
+                                            <TextBlock Margin="10,5" Text="{Binding LastName}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="3">
+                                            <TextBlock Margin="10,5" Text="{Binding Email}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="4">
+                                            <TextBlock Margin="10,5" Text="{Binding Phone}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="5">
+                                            <TextBlock Margin="10,5" Text="{Binding LastOnline}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

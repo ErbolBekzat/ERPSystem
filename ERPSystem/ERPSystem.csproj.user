@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\BlockView\AddEditBlockWindowView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\BlockView\BlockInfoView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\BlockView\BlockListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\BlockWorkforceSummaryView\AddEditBlockWorkforceSummaryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\BlockWorkforceSummaryView\BlockWorkforceSummaryReportView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\CustomCalendar\Calendar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MaterialView\AddEditMaterialView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MaterialView\AddMaterialToTaskView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MaterialView\MaterialInfoView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MaterialView\MaterialListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProblemView\AddEditProblemView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProjectView\AddEditProjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProjectView\ProjectBriefInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ProjectView\ProjectListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoleView\AddEditRoleView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoleView\RoleInfoView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RoleView\RoleListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\StockMovementView\AddEditStockMovementView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SubtaskView\AddEditSubtaskView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SubtaskView\SubtaskDetailsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TaskMaterialView\AddEditTaskMaterialFormView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TaskView\AddEditTaskView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TaskView\DraftView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TaskView\GanttRectangle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TaskView\TaskDetailsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UserView\AddEditUserView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UserView\AddSuperUserView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UserView\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UserView\UserInfoView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UserView\UserListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UserView\UserPasswordResetView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WorkerView\AddEditWorkerView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WorkerView\WorkerInfoView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WorkerView\WorkerListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Icons\Icons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\ButtonStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\MenuItemStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\TabControlStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\BlockView\AddEditBlockWindowView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\BlockView\BlockInfoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\BlockView\BlockListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\BlockWorkforceSummaryView\AddEditBlockWorkforceSummaryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\BlockWorkforceSummaryView\BlockWorkforceSummaryReportView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CustomCalendar\Calendar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MaterialView\AddEditMaterialView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MaterialView\AddMaterialToTaskView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MaterialView\MaterialInfoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MaterialView\MaterialListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProblemView\AddEditProblemView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProjectView\AddEditProjectView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProjectView\ProjectBriefInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ProjectView\ProjectListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoleView\AddEditRoleView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoleView\RoleInfoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RoleView\RoleListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\StockMovementView\AddEditStockMovementView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SubtaskView\AddEditSubtaskView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SubtaskView\SubtaskDetailsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TaskMaterialView\AddEditTaskMaterialFormView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TaskView\AddEditTaskView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TaskView\DraftView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TaskView\GanttRectangle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TaskView\TaskDetailsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserView\AddEditUserView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserView\AddSuperUserView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserView\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserView\UserInfoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserView\UserListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserView\UserPasswordResetView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WorkerView\AddEditWorkerView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WorkerView\WorkerInfoView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WorkerView\WorkerListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

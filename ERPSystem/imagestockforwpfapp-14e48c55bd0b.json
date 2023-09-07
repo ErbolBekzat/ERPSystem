@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "imagestockforwpfapp",
+  "private_key_id": "14e48c55bd0bf1f4d90ff0a5a50f4058727521a3",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDoY7GmaVSWG4aQ\nPcZCGH/v4sRPZCJqRnkbToLbs2MZ+VtCS7SpY0CYSNmyXKt9ZwovI0EdjbHw1l0X\no1Meot2zSKo8hk8aOSQK2XZBh8MTmA9dKAGcCHfxiW42ct0lOhx69Uq8p4H8qXHl\ncYFBb0FMaCO9swwb4witCH561V1ozwUFH66klV1h++uqyp+MyuZkT9QEaso5unrD\nbTwOd7XdidIsT/QCfVbOLmZpevISEF4E3th8fI2Iy5obW0Qqw181ETi0JWLh+P80\nLpC0oTmBGDByvXomWxf9k12+j2kCaBD3Br1zvbiy4WqA2b7OF85/gqqGMt4LVXXl\ny1pPbckPAgMBAAECggEAW+6EarakdbVx6EHn2mHiyr1Et7t/OdejNUA72DoA7FeO\n2I0mbRQMi7HWHQ838CYBC2DA87YIPKQws5cy3J3FYpVOcx8Wz+Lm9TvN4mKYs3mm\nKk4XROi8ulqJtRR/k6iHd8Ttye/iJlfJ7OCYJ5Chnl5cNUFNewK3fewsTN93UmxC\nLjd+LMXYL6NrOHkdVORxEJ6HChxPZJAv4e92/ub7XhuSSdGwzdTonHCjxZUP3gJv\nrIIsX0akQS8LAa6F/syfhqLsm28BSG89psQTzQ7JAOZr1aosBlrTFoeUghqcf4PB\nQa9pbq7CnF5/LcQsv/sEnUL7/0DO97peAkzcMsJHMQKBgQD1XVN9q/0icxB74prF\nLoH3JfwoynX072X4yYb5Z8Bi1SKHjgIzdiRQcEdytk50vlPMMeuhuzPN25628uYc\nQ1Yeqmjm9Awy6EHXTktrC0ztxlO4bu3saxRW7f9/2b6N7cervrndsE/Va5zkVlFX\nRjcoc71cCF/LZaq/hYGjWDa+QwKBgQDydmPbJDL9ZuphqbEg8w19743U47OHnF6d\nU5+XSiy/EPIASn3BL1XIIDwlG8YADTs9XrtHA3ORcmkjX4BbQcAYC3PvGl9n8sJA\n8GVsJwXVmNheOPQ1vyiQbTftXCoxLs+B+rK0xRsg9itZZMcPtSS3Q5ByeJA93xAG\nXuquEBfrRQKBgQC/9DYoIBBWDhy8PqiEUIEeoBnos5OafluRSeANaCyrZUCxOdjg\n97ErONu8k4FHdcrK+db03SaHCyTczaRWQhuyu/B7ljug6/DuhvMbmGijsD+5DxeV\nmKP96g2zsN6R3I8T/o8cLx4Vwi2ouRrDo0vtmrZutKJ01mHBmam054NUTwKBgQCH\nkMBmT8gevQNBleKOvLcHegCATswbf8e7CX2K1pNMRUo59Wx4rmG1IqjeSrgbYUqF\nFsl5fCmK4kB84bHf1FR2XTj2MHW1phsMuhzLKsptUidwD0IkJvykPBzwHv8MPtMR\nJr3yqt5vQJSeR+WxF6Quv50tE9H6dhT8qudmaWMmTQKBgCtC9EG4EGOkmLIgpBJx\nRSh4ujZVLp8Bz/16JKbWLYB9+c/nafGFwn+7BPpmWjEE34ImSbJYP29h27Tblkai\nOaUFBO+kgAbyZhnfJhuU03yV5lXKJv/d/KdB1hVOUTvI52bNICKPzpHPI4Gib/LR\nt6NMtsOzLO1fLQ6EOESI66+B\n-----END PRIVATE KEY-----\n",
+  "client_email": "service-account@imagestockforwpfapp.iam.gserviceaccount.com",
+  "client_id": "107745236394221124728",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/service-account%40imagestockforwpfapp.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

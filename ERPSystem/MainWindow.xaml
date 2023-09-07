@@ -1,0 +1,114 @@
+﻿<Window x:Class="ERPSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ERPSystem"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280"
+        WindowStyle="None"
+        Background="Black">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource LeftMenuBackgroundBrush}"
+                Margin="10,5,10,0"
+                CornerRadius="5">
+            <Grid>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+
+                    <Button Click="Minimize_Click" Foreground="AliceBlue"
+                        Height="25" Width="25" Margin="0, 0, 0, 0"
+                        Style="{StaticResource ButtonWithoutBorder}">
+                        <Image Source="/Icons/MinimizeIcon.png" />
+                    </Button>
+
+                    <Button Click="Maximize_Click" Foreground="AliceBlue"
+                        Height="25" Width="25" Margin="10, 0, 0, 0"
+                        Style="{StaticResource ButtonWithoutBorder}">
+                        <Image Source="/Icons/MaximizeIcon.png" />
+                    </Button>
+
+                    <Button Click="Close_Click" Foreground="AliceBlue"
+                        Height="25" Width="25" Margin="10, 0, 10, 0"
+                        Style="{StaticResource ButtonWithoutBorder}">
+                        <Image Source="/Icons/CloseIcon.png" />
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+        </Border>
+        
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border x:Name="NavigationGrid" Grid.Column="0" Background="{StaticResource LeftMenuBackgroundBrush}" Width="100"
+                    Margin="10,10,0,10"
+                    CornerRadius="10">
+                <Grid >
+
+                    <Border x:Name="Navigator" Height="30" Width="100" Margin="0,140,0,0" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Center"
+                    BorderBrush="{StaticResource LineBrush}" BorderThickness="0">
+                        <Grid>
+                            <Rectangle Fill="{StaticResource BackgroundBrush}" Width="20" HorizontalAlignment="Right"/>
+                        </Grid>
+                    </Border>
+
+                    <Button x:Name="UserButton"
+                            Content="Пользователи"
+                            Width="80"
+                            Height="30"
+                            Foreground="#CBF7ED"
+                            Margin="0, 100, 0, 0"
+                            VerticalAlignment="Top"
+                            Command="{Binding NavCommand}"
+                            CommandParameter="UserListView"
+                            Style="{StaticResource ButtonWithoutBorder}"/>
+
+                    <Button x:Name="ProjectButton"
+                    Content="Проекты"
+                    Width="80"
+                    Height="30"                  
+                    Foreground="#CBF7ED"
+                    Margin="0, 140, 0, 0"
+                    VerticalAlignment="Top"
+                    Command="{Binding NavCommand}"
+                    CommandParameter="ProjectListView"
+                    Style="{StaticResource ButtonWithoutBorder}"/>
+
+                    <Button x:Name="WorkerButton"
+                    Content="Рабочие"
+                    Width="80"
+                    Height="30"                  
+                    Foreground="#CBF7ED"
+                    Margin="0, 180, 0, 0"
+                    VerticalAlignment="Top"
+                    Command="{Binding NavCommand}"
+                    CommandParameter="WorkerListView"
+                    Style="{StaticResource ButtonWithoutBorder}"/>
+
+                </Grid>
+            </Border>
+            
+
+            <Grid Grid.Column="1"
+                  Margin="10,10,0,0">
+                <Border CornerRadius="10,0,0,0" >
+                    <Frame x:Name="MainContent"
+                       Grid.Column="1"
+                       NavigationUIVisibility="Hidden"/>
+                </Border>
+                
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,190 @@
+﻿<UserControl x:Class="ERPSystem.Views.WorkerView.WorkerListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERPSystem.Views.WorkerView"
+             xmlns:converters="clr-namespace:ERPSystem.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1280">
+
+    <UserControl.Resources>
+        <converters:AttendanceConverter x:Key="AttendanceConverter"/>
+        <converters:AttendanceConverter x:Key="NegAttendanceConverter"
+                                                          Negate="True"/>
+    </UserControl.Resources>
+    
+    <Grid Grid.IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource BackgroundBrush}" CornerRadius="5" Margin="5,0,5,5">
+            <Button Grid.Row="0" Content="Новый Рабочий" Height="30" Width="150" Margin="10"
+                    Command="{Binding AddWorkerCommand}"
+                    Style="{StaticResource RoundedButtonStyle}"/>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Margin="5" Background="{StaticResource BackgroundBrush}" CornerRadius="5">
+                <Grid x:Name="HeaderGrid" Margin="10">
+
+                    <Grid.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="Margin" Value="0"/>
+                            <Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                        </Style>
+                        <Style TargetType="TextBlock" x:Key="HeaderTextBlockStyle">
+                            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                            <Setter Property="FontSize" Value="14"/>
+                            <Setter Property="Margin" Value="10,5"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </Grid.Resources>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition SharedSizeGroup="InfoButton"/>
+                        <ColumnDefinition SharedSizeGroup="FirstName"/>
+                        <ColumnDefinition SharedSizeGroup="LastName"/>
+                        <ColumnDefinition SharedSizeGroup="Email"/>
+                        <ColumnDefinition SharedSizeGroup="PhoneNumber"/>
+                        <ColumnDefinition SharedSizeGroup="Addres"/>
+                        <ColumnDefinition SharedSizeGroup="Salary"/>
+                        <ColumnDefinition SharedSizeGroup="AttendanceColumn"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Row="0" Grid.Column="0">
+                        <TextBlock Text="" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="1">
+                        <TextBlock Text="Имя" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="2">
+                        <TextBlock Text="Фамилия" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="3">
+                        <TextBlock Text="Почта" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="4">
+                        <TextBlock Text="Номер" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="5">
+                        <TextBlock Text="Адрес" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="6">
+                        <TextBlock Text="Зарплата" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    </Border>
+                    <Border Grid.Row="0" Grid.Column="7">
+                        <TextBlock Text="Посещаемость" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <Border Grid.Row="1" Margin="5" Background="{StaticResource BackgroundBrush}" CornerRadius="5">
+                <Grid Margin="10">
+                    <ScrollViewer x:Name="Workers" Grid.Column="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible">
+                        <ItemsControl  ItemsSource="{Binding Workers}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="Margin" Value="5,2"/>
+                                                <Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+                                                <Setter Property="BorderThickness" Value=".5"/>
+                                                <Setter Property="CornerRadius" Value="2"/>
+                                            </Style>
+
+                                        </Grid.Resources>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition SharedSizeGroup="InfoButton"/>
+                                            <ColumnDefinition SharedSizeGroup="FirstName"/>
+                                            <ColumnDefinition SharedSizeGroup="LastName"/>
+                                            <ColumnDefinition SharedSizeGroup="Email"/>
+                                            <ColumnDefinition SharedSizeGroup="PhoneNumber"/>
+                                            <ColumnDefinition SharedSizeGroup="Addres"/>
+                                            <ColumnDefinition SharedSizeGroup="Salary"/>
+                                            <ColumnDefinition SharedSizeGroup="AttendanceColumn"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30"/>
+                                        </Grid.RowDefinitions>
+                                        <Border Grid.Row="0" Grid.Column="0" BorderThickness="0">
+                                            <Button Content="Info" Width="30" Height="25" 
+                                                    Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.WorkerInfoCommand}"
+                                                    CommandParameter="{Binding }"/>
+                                        </Border>
+
+                                        <Border Grid.Row="0" Grid.Column="1">
+                                            <TextBlock Margin="10,5" Text="{Binding FirstName}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="2">
+                                            <TextBlock Margin="10,5" Text="{Binding LastName}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="3">
+                                            <TextBlock Margin="10,5" Text="{Binding Email}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="4">
+                                            <TextBlock Margin="10,5" Text="{Binding Phone}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="5">
+                                            <TextBlock Margin="10,5" Text="{Binding Address}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="6">
+                                            <TextBlock Margin="10,5" Text="{Binding Salary}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="7" BorderThickness="0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Content="Начало дня" Width="80" Height="25"
+                                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, 
+                                                        Path=DataContext.AddAtendanceRecordCommand}"
+                                                        CommandParameter="{Binding Id}"
+                                                        Margin="2,0"
+                                                        >
+                                                    <Button.Visibility>
+                                                        <MultiBinding Converter="{StaticResource NegAttendanceConverter}">
+                                                            <Binding Path="DataContext" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                                                            <Binding Path="Id"/>
+                                                        </MultiBinding>
+                                                    </Button.Visibility>
+                                                </Button>
+                                                <Button Content="Конец дня" Width="80" Height="25" 
+                                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, 
+                                                        Path=DataContext.AddCheckOutAtendanceRecordCommand}"
+                                                        CommandParameter="{Binding Id}"
+                                                        Margin="2,0">
+                                                    <Button.Visibility>
+                                                        <MultiBinding Converter="{StaticResource AttendanceConverter}">
+                                                            <Binding Path="DataContext" RelativeSource="{RelativeSource AncestorType={x:Type UserControl}}"/>
+                                                            <Binding Path="Id"/>
+                                                        </MultiBinding>
+                                                    </Button.Visibility>
+                                                </Button>
+
+                                                <Button Content="Отсутсвует" Width="80" Height="25" 
+                                                        Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, 
+                                                        Path=DataContext.MaterialInfoCommand}"
+                                                        CommandParameter="{Binding }"
+                                                        Margin="2,0"/>
+                                            </StackPanel>
+                                        </Border>
+
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+        </Grid>
+    </Grid>
+</UserControl>

@@ -12,7 +12,9 @@
     <None Remove="Assets\TestImages\3.jpg" />
     <None Remove="Assets\TestImages\4.jpg" />
     <None Remove="Assets\TestImages\AkBuura.jpg" />
+    <None Remove="Assets\TestImages\akordo.jpg" />
     <None Remove="Assets\TestImages\HIGH14542_703083.jpg" />
+    <None Remove="Assets\TestImages\Kiziljar.jpg" />
     <None Remove="Icons\CloseIcon.png" />
     <None Remove="Icons\MaximizeIcon.png" />
     <None Remove="Icons\MinimizeIcon.png" />
@@ -40,9 +42,9 @@
 
   <ItemGroup>
     <Resource Include="Assets\TestImages\2.jpg" />
-    <Resource Include="Assets\TestImages\3.jpg" />
     <Resource Include="Assets\TestImages\AkBuura.jpg" />
-    <Resource Include="Assets\TestImages\4.jpg" />
+    <Resource Include="Assets\TestImages\akordo.jpg" />
+    <Resource Include="Assets\TestImages\Kiziljar.jpg" />
     <Resource Include="Icons\CloseIcon.png" />
     <Resource Include="Icons\MaximizeIcon.png" />
     <Resource Include="Icons\MinimizeIcon.png" />

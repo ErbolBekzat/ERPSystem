@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\TestImages\2.jpg" />
+    <None Remove="Assets\TestImages\3.jpg" />
+    <None Remove="Assets\TestImages\4.jpg" />
+    <None Remove="Assets\TestImages\AkBuura.jpg" />
     <None Remove="Assets\TestImages\HIGH14542_703083.jpg" />
     <None Remove="Icons\CloseIcon.png" />
     <None Remove="Icons\MaximizeIcon.png" />
@@ -35,7 +39,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\TestImages\HIGH14542_703083.jpg" />
+    <Resource Include="Assets\TestImages\2.jpg" />
+    <Resource Include="Assets\TestImages\3.jpg" />
+    <Resource Include="Assets\TestImages\AkBuura.jpg" />
+    <Resource Include="Assets\TestImages\4.jpg" />
     <Resource Include="Icons\CloseIcon.png" />
     <Resource Include="Icons\MaximizeIcon.png" />
     <Resource Include="Icons\MinimizeIcon.png" />

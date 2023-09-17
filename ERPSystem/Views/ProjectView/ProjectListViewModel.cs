@@ -63,7 +63,7 @@ namespace ERPSystem.Views.ProjectView
 
                 i++;
 
-                if (i > 3)
+                if (i > 1)
                 {
                     i = 0;
                     rowIndex++;

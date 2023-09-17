@@ -21,13 +21,13 @@
         <Grid Width="550" Height="310" VerticalAlignment="Top">
             <Border CornerRadius="20,20,20,20">
                 <Border.Background>
-                    <ImageBrush Stretch="Uniform" ImageSource="/Assets/TestImages/1.jpg"/>
+                    <ImageBrush Stretch="Uniform" ImageSource="{Binding Project.ImageLink}"/>
                 </Border.Background>
             </Border>
             <Grid>
                 <Rectangle>
                     <Rectangle.Fill>
-                        <SolidColorBrush Color="#000000" Opacity="0.4"/>
+                        <SolidColorBrush Color="#000000" Opacity="0.2"/>
                     </Rectangle.Fill>
                 </Rectangle>
                 <Grid Grid.Row="1">
@@ -39,7 +39,7 @@
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0" Background="Transparent">
-                        <TextBlock Text="Ak Buura" Foreground="{StaticResource TextBrush}" FontSize="16" Margin="10"/>
+                        <TextBlock Text="{Binding Project.Name}" Foreground="{StaticResource TextBrush}" FontSize="16" Margin="10"/>
                     </Grid>
 
                     <!--<Grid Grid.Row="1" Margin="0,0,0,20">
@@ -111,7 +111,7 @@
 
                     </Grid>-->
 
-                    <Grid Grid.Row="2" Background="Transparent" Margin="10,230">
+                    <Grid Grid.Row="2" Background="Transparent" Margin="10,225">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>

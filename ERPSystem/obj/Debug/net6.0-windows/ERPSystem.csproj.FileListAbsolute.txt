@@ -162,3 +162,12 @@ D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Views\CustomC
 D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Views\WorkerView\WorkerInfoView.baml
 D:\GitHub\WPFLearning\ERPSystem\ERPSystem\bin\Debug\net6.0-windows\Wpf.Ui.dll
 D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Styles\TabControlStyle.baml
+D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Views\PurchaseOrderView\AddEditPurchaseOrderView.g.cs
+D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Views\PurchaseOrderView\PurchaseOrderListView.g.cs
+D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Views\PurchaseOrderView\AddEditPurchaseOrderView.baml
+D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Views\PurchaseOrderView\PurchaseOrderListView.baml
+D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Views\MaterialOrderRequestView\AddEditMaterialOrderRequestView.g.cs
+D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Views\MaterialOrderRequestView\AddEditMaterialOrderRequestView.baml
+D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Views\MaterialOrderRequestView\MaterialOrderRequestListView.g.cs
+D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Views\MaterialOrderRequestView\MaterialOrderRequestListView.baml
+D:\GitHub\WPFLearning\ERPSystem\ERPSystem\obj\Debug\net6.0-windows\Styles\ThemeDictionary.baml

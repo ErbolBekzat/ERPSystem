@@ -14,6 +14,8 @@
                 <ResourceDictionary Source="/Styles/TabControlStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
+
+
             <Color x:Key="LeftMenuBackgroundColor">#191D24</Color>
             <!--<Color x:Key="LeftMenuBackgroundColor">#012A36</Color>-->
             <SolidColorBrush x:Key="LeftMenuBackgroundBrush" Color="{StaticResource LeftMenuBackgroundColor}"/>
@@ -21,8 +23,16 @@
             <!--<Color x:Key="BackgroundColor">#CCFBFE</Color>-->
 
             <Color x:Key="BackgroundColor">#222831</Color>
-            
+
             <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+
+
+            <Color x:Key="PrimaryTaskBGColor">#2A313C</Color>
+            <SolidColorBrush x:Key="PrimaryTaskBGBrush" Color="{StaticResource PrimaryTaskBGColor}"/>
+
+
+            <Color x:Key="SecondaryTaskBGColor">#323B48</Color>
+            <SolidColorBrush x:Key="SecondaryTaskBGBrush" Color="{StaticResource SecondaryTaskBGColor}"/>
 
             <!--<Color x:Key="TextColor">#012A36</Color>-->
 
@@ -31,22 +41,17 @@
 
 
             <!--<Color x:Key="LineColor">#012A36</Color>-->
-            <Color x:Key="LineColor">#00ADB5</Color>
+            <Color x:Key="LineColor">Gray</Color>
             <SolidColorBrush x:Key="LineBrush" Color="{StaticResource LineColor}"/>
-            
+
 
             <Color x:Key="HeaderBackgroundColor">#171717</Color>
-            
+
             <!--<Color x:Key="HeaderBackgroundColor">#2E3C4B</Color>-->
-            
+
             <SolidColorBrush x:Key="HeaderBackgroundBrush" Color="{StaticResource BackgroundColor}"/>
 
-            <Color x:Key="PrimaryTaskBGColor">#222831</Color>
-            <SolidColorBrush x:Key="PrimaryTaskBGBrush" Color="{StaticResource PrimaryTaskBGColor}"/>
 
-
-            <Color x:Key="SecondaryTaskBGColor" A="0" R="255" G="0" B="0"/>
-            <SolidColorBrush x:Key="SecondaryTaskBGBrush" Color="{StaticResource SecondaryTaskBGColor}"/>
 
 
             <Color x:Key="PrimaryRectBGColor">#b8c1ec</Color>
@@ -62,8 +67,6 @@
 
             <Color x:Key="PressedColor">#141414</Color>
             <SolidColorBrush x:Key="PressedBrush" Color="{StaticResource PressedColor}"/>
-
-            
 
 
             <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">

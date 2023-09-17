@@ -245,6 +245,118 @@ namespace ERPSystem.Migrations
                     b.ToTable("Materials");
                 });
 
+            modelBuilder.Entity("ERPSystem.Models.MaterialOrderRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("MaterialAmount")
+                        .HasColumnType("real");
+
+                    b.Property<int>("MaterialId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("MaterialName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime?>("OrderedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("RequestedById")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("RequestedByName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("RequestedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("StockId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SubtaskId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MaterialOrderRequests");
+                });
+
+            modelBuilder.Entity("ERPSystem.Models.MaterialPurchaseOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AuthorizedById")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("AuthorizedByName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("ExpectedDeliveryDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<float>("MaterialAmount")
+                        .HasColumnType("real");
+
+                    b.Property<int>("MaterialId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("MaterialName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime?>("ReceivedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("RequestId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("RequestedById")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("RequestedByName")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("StockId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SubtaskId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PurchaseOrders");
+                });
+
             modelBuilder.Entity("ERPSystem.Models.Permission", b =>
                 {
                     b.Property<int>("PermissionId")
@@ -345,62 +457,6 @@ namespace ERPSystem.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Projects");
-                });
-
-            modelBuilder.Entity("ERPSystem.Models.PurchaseOrder", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AuthorizedById")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("AuthorizedByName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime?>("ExpectedDeliveryDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("MaterialId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("MaterialName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
-
-                    b.Property<DateTime?>("ReceivedDate")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("RequestedById")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("RequestedByName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("StockId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("PurchaseOrders");
                 });
 
             modelBuilder.Entity("ERPSystem.Models.Role", b =>

@@ -4,6 +4,7 @@ using ERPSystem.Views.BlockWorkforceSummaryView;
 using ERPSystem.Views.MaterialView;
 using ERPSystem.Views.ProblemView;
 using ERPSystem.Views.ProjectView;
+using ERPSystem.Views.PurchaseOrderView;
 using ERPSystem.Views.RoleView;
 using ERPSystem.Views.SubtaskView;
 using ERPSystem.Views.TaskView;
@@ -49,6 +50,9 @@ namespace ERPSystem
 
         private MaterialListView materialListView;
         //private AddEditMaterialView addEditMaterialView;
+
+        private PurchaseOrderListView purchaseOrderListView;
+
 
         private WorkerListView workerListView;
         private WorkerInfoView workerInfoView;
@@ -144,6 +148,7 @@ namespace ERPSystem
             materialListView = ContainerHelper.Container.Resolve<MaterialListView>();
             //addEditMaterialView = ContainerHelper.Container.Resolve<AddEditMaterialView>();
 
+            purchaseOrderListView = ContainerHelper.Container.Resolve<PurchaseOrderListView>();
             addEditRoleView = ContainerHelper.Container.Resolve<AddEditRoleView>();
 
             workerListView = ContainerHelper.Container.Resolve<WorkerListView>();

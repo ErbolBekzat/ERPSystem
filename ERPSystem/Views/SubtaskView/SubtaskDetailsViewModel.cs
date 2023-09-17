@@ -21,6 +21,10 @@ using System.IO;
 using System.Diagnostics;
 using ERPSystem.Services.BlockServices;
 using ERPSystem.Services.StockServices;
+using ERPSystem.Views.MaterialOrderRequestView;
+using System.Windows.Media.Media3D;
+using Microsoft.Practices.Unity;
+using ERPSystem.Views.PurchaseOrderView;
 
 namespace ERPSystem.Views.SubtaskView
 {
@@ -87,6 +91,39 @@ namespace ERPSystem.Views.SubtaskView
             set { SetProperty(ref _bitmap, value); }
         }
 
+        private Project _project;
+
+        public Project Project
+        {
+            get { return _project; }
+            set { SetProperty(ref _project, value); }
+        }
+
+
+        private Stock _stock;
+
+        public Stock Stock
+        {
+            get { return _stock; }
+            set { SetProperty(ref _stock, value); }
+        }
+
+        private MaterialOrderRequestListView _materialOrderRequestListView;
+
+        public MaterialOrderRequestListView MaterialOrderRequestListView
+        {
+            get { return _materialOrderRequestListView; }
+            set { SetProperty(ref _materialOrderRequestListView, value); }
+        }
+
+
+        private PurchaseOrderListView _purchaseOrderListView;
+
+        public PurchaseOrderListView PurchaseOrderListView
+        {
+            get { return _purchaseOrderListView; }
+            set { SetProperty(ref _purchaseOrderListView, value); }
+        }
 
 
         private Subtask _readingSubtask = null;
@@ -121,6 +158,9 @@ namespace ERPSystem.Views.SubtaskView
             lineColor = new SolidColorBrush((Color)Application.Current.Resources["LineColor"]);
 
 
+            MaterialOrderRequestListView = ContainerHelper.Container.Resolve<MaterialOrderRequestListView>();
+            PurchaseOrderListView = ContainerHelper.Container.Resolve<PurchaseOrderListView>();
+
             BackCommand = new RelayCommand(OnBack);
             EditSubtaskCommand = new RelayCommand(OnEditSubtask);
             CompleteSubtaskCommand = new RelayCommand(OnCompleteSubtask, CanCompleteSubtask);
@@ -131,13 +171,18 @@ namespace ERPSystem.Views.SubtaskView
             EditProblemCommand = new RelayCommand<int> (OnEditProblem);
             DeleteProblemCommand = new RelayCommand<int>(OnDeleteProblem);
             OpenImageCommand = new RelayCommand<string> (OnOpenImage);
+            AddMaterialOrderRequestCommand = new RelayCommand(OnAddMaterialOrderRequest);
 
             Subtasks = new ObservableCollection<Subtask>();
         }
 
-        public void SetSubtask(Subtask subtask)
+        public async void SetSubtask(Subtask subtask)
         {
             _readingSubtask = subtask;
+            Task task = _taskService.GetTaskById(subtask.TaskId);
+
+            Project = await _projectService.GetProjectByIdAsync(task.ProjectId);
+            Stock = Project.Stock;
 
             TaskMaterials = new ObservableCollection<TaskMaterials>(_taskMaterialService.GetTaskMaterialsBySubtaskId(subtask.Id));
             Problems = new ObservableCollection<Problem>(_problemService.GetAllProblemsBySubtaskId(subtask.Id));
@@ -146,6 +191,14 @@ namespace ERPSystem.Views.SubtaskView
             CopySubtask(_readingSubtask);
 
             CompleteSubtaskCommand.RaiseCanExecuteChanged();
+
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            MaterialOrderRequestListView.ViewModel.LoadRequests(Project);
+            PurchaseOrderListView.ViewModel.LoadOrders(Project);
         }
 
         private void CopySubtask(Subtask source)
@@ -199,7 +252,7 @@ namespace ERPSystem.Views.SubtaskView
                 foreach (TaskMaterials taskMaterial in TaskMaterials)
                 {
                     Stock stock = _stockService.GetStockByProjectId(_readingSubtask.Task.ProjectId);
-                    Material material = _materialService.GetMaterialById(taskMaterial.MaterialId);
+                    Models.Material material = _materialService.GetMaterialById(taskMaterial.MaterialId);
                     StockMovement stockMovement = new StockMovement();
                     stockMovement.MaterialId = taskMaterial.MaterialId;
                     stockMovement.SubtaskId = _readingSubtask.Id;
@@ -321,6 +374,24 @@ namespace ERPSystem.Views.SubtaskView
             return true;
         }
 
+        AddEditMaterialOrderRequestView addEditMaterialOrderRequestWindow;
+
+        public RelayCommand AddMaterialOrderRequestCommand { get; private set; }
+        private void OnAddMaterialOrderRequest()
+        {
+            MaterialOrderRequest request = new MaterialOrderRequest();
+            request.StockId = Stock.Id;
+            request.SubtaskId = _readingSubtask.Id;
+            
+            ObservableCollection<Models.Material> materials = new ObservableCollection<Models.Material>(_materialService.GetMaterialsByStockId(Stock.Id));
+
+            addEditMaterialOrderRequestWindow = new AddEditMaterialOrderRequestView();
+            addEditMaterialOrderRequestWindow.ViewModel.EditMode = false;
+            addEditMaterialOrderRequestWindow.ViewModel.SetRequest(request, materials, addEditMaterialOrderRequestWindow);
+            addEditMaterialOrderRequestWindow.ViewModel.Done += LoadData;
+
+            addEditMaterialOrderRequestWindow.ShowDialog();
+        }
 
     }
 }

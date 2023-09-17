@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ERPSystem.Views.UserView"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
-    <Grid>
+    <Grid VerticalAlignment="Center">
         <Grid.Resources>
             <Style TargetType="TextBlock">
                 <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
@@ -23,10 +23,42 @@
             </Style>
             
         </Grid.Resources>
-        <Border VerticalAlignment="Center" HorizontalAlignment="Center"
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" 
+                VerticalAlignment="Center" HorizontalAlignment="Center"
                 Background="{StaticResource BackgroundBrush}"
-                    CornerRadius="5"
-                    Margin="0,0,0,150">
+                CornerRadius="5"
+                Margin="0,20">
+            <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50,30">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!--<TextBlock Grid.Row="0" Text="Login" Foreground="{StaticResource TextBrush}" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,20"/>-->
+
+                <StackPanel Grid.Row="0" Orientation="Vertical">
+                    <TextBlock Text="Данные для входа" Margin="0,20" HorizontalAlignment="Center" FontSize="14" FontWeight="Bold"/>
+                    <TextBlock Text="Email" HorizontalAlignment="Center"/>
+                    <TextBox BorderThickness="0" x:Name="EmailInfo" Text="derbolb@gmail.com" MinWidth="130" Margin="0,5,0,0" IsReadOnly="True" TextAlignment="Center"/>
+
+                    <TextBlock Text="Password" Margin="0,15,0,0" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="PasswordInfo" BorderThickness="0" Text="RQ69#6YdZA" MinWidth="130" Margin="0,5,0,0" IsReadOnly="True" TextAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" 
+                VerticalAlignment="Center" HorizontalAlignment="Center"
+                Background="{StaticResource BackgroundBrush}"
+                    CornerRadius="5">
             <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50,30">
 
                 <Grid.RowDefinitions>

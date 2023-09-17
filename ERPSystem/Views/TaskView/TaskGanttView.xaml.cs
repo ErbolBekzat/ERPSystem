@@ -190,7 +190,7 @@ namespace ERPSystem.Views.TaskView
             Style borderStyle = new Style(typeof(Border));
             //borderStyle.Setters.Add(new Setter(Border.BorderBrushProperty, lineColor));
             borderStyle.Setters.Add(new Setter(Border.BorderThicknessProperty, new Thickness(1)));
-            borderStyle.Setters.Add(new Setter(Border.BackgroundProperty, primaryTaskBG));
+            borderStyle.Setters.Add(new Setter(Border.BackgroundProperty, background));
             borderStyle.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(2, 2, 2, 2)));
 
             for (int i = 0; i < totalMonths; i++)
@@ -235,7 +235,7 @@ namespace ERPSystem.Views.TaskView
             Style borderStyle = new Style(typeof(Border));
             borderStyle.Setters.Add(new Setter(Border.BorderBrushProperty, lineColor));
             borderStyle.Setters.Add(new Setter(Border.BorderThicknessProperty, new Thickness(0)));
-            borderStyle.Setters.Add(new Setter(Border.BackgroundProperty, primaryTaskBG));
+            borderStyle.Setters.Add(new Setter(Border.BackgroundProperty, background));
             borderStyle.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(2, 2, 2, 2)));
 
             ColumnGrid.Resources.Add(typeof(Border), borderStyle);
@@ -366,11 +366,11 @@ namespace ERPSystem.Views.TaskView
                 parentTaskGrid.Height = 50;
 
                 Style borderStyle = new Style(typeof(Border));
-                borderStyle.Setters.Add(new Setter(Border.BorderBrushProperty, lineColor));
-                borderStyle.Setters.Add(new Setter(Border.BorderThicknessProperty, new Thickness(.5)));
+                //borderStyle.Setters.Add(new Setter(Border.BorderBrushProperty, lineColor));
+                //borderStyle.Setters.Add(new Setter(Border.BorderThicknessProperty, new Thickness(.5)));
                 borderStyle.Setters.Add(new Setter(Border.BackgroundProperty, primaryTaskBG));
                 borderStyle.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(2, 2, 2, 2)));
-                borderStyle.Setters.Add(new Setter(Border.MarginProperty, new Thickness(5,2,0,0)));
+                borderStyle.Setters.Add(new Setter(Border.MarginProperty, new Thickness(5,5,5,0)));
 
                 Style textBlockStyle = new Style(typeof(TextBlock));
                 textBlockStyle.Setters.Add(new Setter(TextBlock.FontWeightProperty, FontWeights.Bold));
@@ -419,11 +419,11 @@ namespace ERPSystem.Views.TaskView
                         showButton.Name = addButtonName;
                         showButton.Click += Button_Click;
                         showButton.Foreground = textColor;
-                        showButton.BorderBrush = lineColor;
                         showButton.Width = 50;
                         showButton.HorizontalAlignment = HorizontalAlignment.Left;
                         showButton.SetValue(Grid.ColumnProperty, 0);
                         showButton.Style = (Style)FindResource("LeftRoundedButtonStyle");
+                        showButton.Margin = new Thickness(0, 5, 2, 0);
 
                         parentTaskTitleButtons.Children.Add(showButton);
 
@@ -432,12 +432,11 @@ namespace ERPSystem.Views.TaskView
                         infoButton.Command = TaskDetailsCommand;
                         infoButton.CommandParameter = task.Id;
                         infoButton.Foreground = textColor;
-                        infoButton.BorderBrush = lineColor;
                         infoButton.Width = 30;
                         infoButton.HorizontalAlignment = HorizontalAlignment.Left;
                         infoButton.SetValue(Grid.ColumnProperty, 1);
                         infoButton.Style = (Style)FindResource("RoundedButtonStyle");
-                        infoButton.Margin = new Thickness(2, 0, 2, 0);
+                        infoButton.Margin = new Thickness(2, 5, 2, 0);
                         parentTaskTitleButtons.Children.Add(infoButton);
 
                         Button addButton = new Button();
@@ -445,12 +444,11 @@ namespace ERPSystem.Views.TaskView
                         addButton.Command = AddSubtaskCommand;
                         addButton.CommandParameter = parentId;
                         addButton.Foreground = textColor;
-                        addButton.BorderBrush = lineColor;
                         addButton.Width = 30;
                         addButton.HorizontalAlignment = HorizontalAlignment.Stretch;
                         addButton.SetValue(Grid.ColumnProperty, 2);
                         addButton.Style = (Style)FindResource("RoundedButtonStyle");
-                        addButton.Margin = new Thickness(2, 0, 2, 0);
+                        addButton.Margin = new Thickness(2, 5, 2, 0);
                         parentTaskTitleButtons.Children.Add(addButton);
 
                         Border border = new Border();
@@ -461,7 +459,7 @@ namespace ERPSystem.Views.TaskView
                         title.Height = 29;
                         title.HorizontalAlignment = HorizontalAlignment.Left;
                         title.Foreground = textColor;
-                        title.Margin = new Thickness(25, 0, 45, 0);
+                        title.Margin = new Thickness(45, 0, 45, 0);
 
                         border.Child = title;
                         parentTaskTitleGrid.Children.Add(border);
@@ -472,6 +470,7 @@ namespace ERPSystem.Views.TaskView
                     {
                         Border cellBorder = new Border();
                         cellBorder.SetValue(Grid.ColumnProperty, i);
+                        cellBorder.Style = borderStyle;
 
                         TextBlock textBlock = new TextBlock();
                         textBlock.Name = prop.Name;
@@ -481,7 +480,7 @@ namespace ERPSystem.Views.TaskView
                             if (prop.GetValue(task) != null)
                             {
                                 DateTime date = (DateTime)prop.GetValue(task);
-                                string formattedDate = date.ToString("yyyy-MM-dd");
+                                string formattedDate = date.ToString("dd/MMMM/yyyy");
                                 textBlock.Text = formattedDate;
                             }
                         }
@@ -549,11 +548,11 @@ namespace ERPSystem.Views.TaskView
             _childTaskGrids.Add(childTaskGrid);
 
             Style borderStyle = new Style(typeof(Border));
-            borderStyle.Setters.Add(new Setter(Border.BorderBrushProperty, lineColor));
-            borderStyle.Setters.Add(new Setter(Border.BorderThicknessProperty, new Thickness(.5)));
-            borderStyle.Setters.Add(new Setter(Border.BackgroundProperty, primaryTaskBG));
+            //borderStyle.Setters.Add(new Setter(Border.BorderBrushProperty, lineColor));
+            //borderStyle.Setters.Add(new Setter(Border.BorderThicknessProperty, new Thickness(.5)));
+            borderStyle.Setters.Add(new Setter(Border.BackgroundProperty, secondaryTaskBG));
             borderStyle.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(2, 2, 2, 2)));
-            borderStyle.Setters.Add(new Setter(Border.MarginProperty, new Thickness(5, 2, 0, 0)));
+            borderStyle.Setters.Add(new Setter(Border.MarginProperty, new Thickness(5, 5, 5, 0)));
 
             childTaskGrid.Resources.Add(typeof(Border), borderStyle);
 
@@ -625,9 +624,9 @@ namespace ERPSystem.Views.TaskView
                         infoButton.Command = SubtaskDetailsCommand;
                         infoButton.CommandParameter = subtask.Id;
                         infoButton.Foreground = textColor;
-                        infoButton.BorderBrush = lineColor;
                         infoButton.Width = 30;
                         infoButton.HorizontalAlignment = HorizontalAlignment.Right;
+                        infoButton.Margin = new Thickness(2, 5, 2, 0);
                         infoButton.Style = (Style)FindResource("LeftRoundedButtonStyle");
                         taskTitleButtons.Children.Add(infoButton);
 
@@ -661,7 +660,7 @@ namespace ERPSystem.Views.TaskView
                             if (prop.GetValue(subtask) != null)
                             {
                                 DateTime date = (DateTime)prop.GetValue(subtask);
-                                string formattedDate = date.ToString("yyyy-MM-dd");
+                                string formattedDate = date.ToString("dd/MMMM/yyyy");
                                 textBlock.Text = formattedDate;
                             }
                         }

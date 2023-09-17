@@ -1,0 +1,54 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="LeftMenuBackgroundColor">#3C3B36</Color>
+    <!--<Color x:Key="LeftMenuBackgroundColor">#012A36</Color>-->
+    <SolidColorBrush x:Key="LeftMenuBackgroundBrush" Color="{StaticResource LeftMenuBackgroundColor}"/>
+
+    <!--<Color x:Key="BackgroundColor">#CCFBFE</Color>-->
+
+    <Color x:Key="BackgroundColor">#382F2A</Color>
+
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+
+
+    <Color x:Key="PrimaryTaskBGColor">#463B35</Color>
+    <SolidColorBrush x:Key="PrimaryTaskBGBrush" Color="{StaticResource PrimaryTaskBGColor}"/>
+
+
+    <Color x:Key="SecondaryTaskBGColor">#51443D</Color>
+    <SolidColorBrush x:Key="SecondaryTaskBGBrush" Color="{StaticResource SecondaryTaskBGColor}"/>
+
+    <!--<Color x:Key="TextColor">#012A36</Color>-->
+
+    <Color x:Key="TextColor">#9F9181</Color>
+    <SolidColorBrush x:Key="TextBrush" Color="{StaticResource TextColor}"/>
+
+
+    <!--<Color x:Key="LineColor">#012A36</Color>-->
+    <Color x:Key="LineColor">Gray</Color>
+    <SolidColorBrush x:Key="LineBrush" Color="{StaticResource LineColor}"/>
+
+
+    <Color x:Key="HeaderBackgroundColor">#171717</Color>
+
+    <!--<Color x:Key="HeaderBackgroundColor">#2E3C4B</Color>-->
+
+    <SolidColorBrush x:Key="HeaderBackgroundBrush" Color="{StaticResource BackgroundColor}"/>
+
+
+
+
+    <Color x:Key="PrimaryRectBGColor">#b8c1ec</Color>
+    <SolidColorBrush x:Key="PrimaryRectBGBrush" Color="{StaticResource PrimaryRectBGColor}"/>
+
+
+    <Color x:Key="SecondaryRectBGColor">#fffffe</Color>
+    <SolidColorBrush x:Key="SecondaryRectBGBrush" Color="{StaticResource SecondaryRectBGColor}"/>
+
+
+    <Color x:Key="MouseIsOverColor">#0A4748</Color>
+    <SolidColorBrush x:Key="MouseIsOverBrush" Color="{StaticResource MouseIsOverColor}"/>
+
+    <Color x:Key="PressedColor">#141414</Color>
+    <SolidColorBrush x:Key="PressedBrush" Color="{StaticResource PressedColor}"/>
+</ResourceDictionary>

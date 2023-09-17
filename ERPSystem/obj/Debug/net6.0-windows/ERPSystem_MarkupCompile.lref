@@ -7,6 +7,8 @@ FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\BlockView\BlockListView.xaml;;
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\BlockWorkforceSummaryView\AddEditBlockWorkforceSummaryView.xaml;;
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\BlockWorkforceSummaryView\BlockWorkforceSummaryReportView.xaml;;
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\CustomCalendar\Calendar.xaml;;
+FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\MaterialOrderRequestView\AddEditMaterialOrderRequestView.xaml;;
+FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\MaterialOrderRequestView\MaterialOrderRequestListView.xaml;;
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\MaterialView\AddEditMaterialView.xaml;;
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\MaterialView\AddMaterialToTaskView.xaml;;
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\MaterialView\MaterialInfoView.xaml;;
@@ -15,6 +17,8 @@ FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\ProblemView\AddEditProblemView.
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\ProjectView\AddEditProjectView.xaml;;
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\ProjectView\ProjectBriefInfo.xaml;;
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\ProjectView\ProjectListView.xaml;;
+FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\PurchaseOrderView\AddEditPurchaseOrderView.xaml;;
+FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\PurchaseOrderView\PurchaseOrderListView.xaml;;
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\RoleView\AddEditRoleView.xaml;;
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\RoleView\RoleInfoView.xaml;;
 FD:\GitHub\WPFLearning\ERPSystem\ERPSystem\Views\RoleView\RoleListView.xaml;;

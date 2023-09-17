@@ -3,6 +3,7 @@ using ERPSystem.Services;
 using ERPSystem.Services.AttendanceServices;
 using ERPSystem.Services.BlockServices;
 using ERPSystem.Services.BlockWorkforceSummaryServices;
+using ERPSystem.Services.MaterialOrderRequestServices;
 using ERPSystem.Services.ProblemServices;
 using ERPSystem.Services.PurchaseOrderServices;
 using ERPSystem.Services.Purhc;
@@ -42,6 +43,7 @@ namespace ERPSystem
             _container.RegisterType<IAttendanceService, AttendanceService>(new ContainerControlledLifetimeManager());
             _container.RegisterType<IBlockWorkforceSummaryService, BlockWorkforceSummaryService>(new ContainerControlledLifetimeManager());
             _container.RegisterType<IPurchaseOrderService, PurchaseOrderService>(new ContainerControlledLifetimeManager());
+            _container.RegisterType<IMaterialOrderRequestService, MaterialOrderRequestService>(new ContainerControlledLifetimeManager());
         }
 
         public static IUnityContainer Container

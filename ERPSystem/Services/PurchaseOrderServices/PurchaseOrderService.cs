@@ -16,32 +16,32 @@ namespace ERPSystem.Services.Purhc
             _context = context;
         }
 
-        public IEnumerable<PurchaseOrder> GetAllPurchaseOrders()
+        public IEnumerable<MaterialPurchaseOrder> GetAllPurchaseOrders()
         {
             return _context.PurchaseOrders
                 .ToList();
         }
 
-        public IEnumerable<PurchaseOrder> GetAllPurchaseOrdersWithStockId(int stockId)
+        public IEnumerable<MaterialPurchaseOrder> GetAllPurchaseOrdersWithStockId(int stockId)
         {
             return _context.PurchaseOrders
                 .Where(po => po.StockId == stockId)
                 .ToList();
         }
 
-        public PurchaseOrder GetPurchaseOrderById(int purchaseOrderId)
+        public MaterialPurchaseOrder GetPurchaseOrderById(int purchaseOrderId)
         {
             return _context.PurchaseOrders
                 .SingleOrDefault(po => po.Id == purchaseOrderId);
         }
 
-        public void CreatePurchaseOrder(PurchaseOrder purchaseOrder)
+        public void CreatePurchaseOrder(MaterialPurchaseOrder purchaseOrder)
         {
             _context.PurchaseOrders.Add(purchaseOrder);
             _context.SaveChanges();
         }
 
-        public void EditPurchaseOrder(PurchaseOrder purchaseOrder)
+        public void EditPurchaseOrder(MaterialPurchaseOrder purchaseOrder)
         {
             _context.Entry(purchaseOrder).State = EntityState.Modified;
             _context.SaveChanges();

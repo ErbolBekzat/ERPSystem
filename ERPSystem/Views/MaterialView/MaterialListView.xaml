@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ERPSystem.Views.MaterialView"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid Grid.IsSharedSizeScope="True">
 
@@ -31,10 +31,11 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Margin="5,0,5,5"
+        <Border Grid.Row="0" Margin="5,5,10,5"
                 CornerRadius="5"
                 Background="{StaticResource BackgroundBrush}"
                 BorderThickness="0">
@@ -42,33 +43,28 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition SharedSizeGroup="MaterialColumn"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Content="Новый Материал" Width="120" Height="30" Command="{Binding AddMaterialCommand}" 
-                    HorizontalAlignment="Left"
-                    Style="{StaticResource RoundedButtonStyle}"/>
-                <Button Grid.Column="1" Content="Новое движение" Width="120" Height="30" Command="{Binding AddStockMovementCommand}" 
-                    HorizontalAlignment="Left" Margin="10,0,0,0"
-                    Style="{StaticResource RoundedButtonStyle}"/>
-                <TextBlock Grid.Column="2" Text="{Binding Project.Name}" HorizontalAlignment="Right" Style="{StaticResource HeaderTextBoxStyle}"/>
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Button Grid.Column="0" Content="Новый Материал" Width="120" Height="30" Command="{Binding AddMaterialCommand}" 
+                            HorizontalAlignment="Left"
+                            Style="{StaticResource RoundedButtonStyle}"/>
+                    <Button Grid.Column="1" Content="Новое движение" Width="120" Height="30" Command="{Binding AddStockMovementCommand}" 
+                            HorizontalAlignment="Left" Margin="10,0,0,0"
+                            Style="{StaticResource RoundedButtonStyle}"/>
+                </StackPanel>
+                
+                <TextBlock Grid.Column="1" Text="{Binding Project.Name}" HorizontalAlignment="Right" Style="{StaticResource HeaderTextBoxStyle}"/>
 
             </Grid>
         </Border>
 
-
-        <Grid Grid.Row="1" Grid.IsSharedSizeScope="True">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <Border x:Name="MaterialsBorder" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" 
+        <Border Grid.Row="1" Margin="5,5,10,5"
+                CornerRadius="5"
+                Background="{StaticResource BackgroundBrush}"
+                BorderThickness="0">
+            <StackPanel Grid.Column="0" Orientation="Horizontal" Margin="10">
+                <Border x:Name="MaterialsBorder" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" 
                     MouseDown="MaterialBorder_MouseDown"
                     MouseEnter="MaterialBorder_MouseEnter"
                     MouseLeave="MaterialBorder_MouseLeave"
@@ -76,23 +72,56 @@
                     BorderThickness="0"
                     Background="{StaticResource BackgroundBrush}"
                     CornerRadius="5"
-                    Margin="5">
-                <TextBlock Text="Материалы" Style="{StaticResource HeaderTextBoxStyle}"/>
-            </Border>
+                    Width="150"
+                    HorizontalAlignment="Left">
+                    <TextBlock Text="Материалы" Style="{StaticResource HeaderTextBoxStyle}" Margin="15,5"/>
+                </Border>
 
-            <!-- Column Header - Stock Movements -->
-            <Border x:Name="MaterialsMovementsBorder" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1"
-                    MouseDown="MaterialBorder_MouseDown"
-                    MouseEnter="MaterialBorder_MouseEnter"
-                    MouseLeave="MaterialBorder_MouseLeave"
-                    Tag="MaterialsMovements"
-                    BorderThickness="0"
-                    Background="{StaticResource BackgroundBrush}"
-                    CornerRadius="5">
-                <TextBlock Text="Движение материала по складу" Style="{StaticResource HeaderTextBoxStyle}"/>
-            </Border>
+                <!-- Column Header - Stock Movements -->
+                <Border x:Name="MaterialsMovementsBorder" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="1"
+                        MouseDown="MaterialBorder_MouseDown"
+                        MouseEnter="MaterialBorder_MouseEnter"
+                        MouseLeave="MaterialBorder_MouseLeave"
+                        Tag="MaterialsMovements"
+                        BorderThickness="0"
+                        Background="{StaticResource LeftMenuBackgroundBrush}"
+                        CornerRadius="5">
+                    <TextBlock Text="Движение материала по складу" Style="{StaticResource HeaderTextBoxStyle}" Margin="15,5"/>
+                </Border>
 
-            <Grid x:Name="MaterialsGrid" Grid.Row="1" Grid.Column="0">
+                <Border x:Name="PurchaseOrdersBorder"
+                        MouseDown="MaterialBorder_MouseDown"
+                        MouseEnter="MaterialBorder_MouseEnter"
+                        MouseLeave="MaterialBorder_MouseLeave"
+                        Tag="MaterialsMovements"
+                        BorderThickness="0"
+                        Background="{StaticResource LeftMenuBackgroundBrush}"
+                        CornerRadius="5">
+                    <TextBlock Text="Заказы" Style="{StaticResource HeaderTextBoxStyle}" Margin="15,5"/>
+                </Border>
+
+                <Border x:Name="MaterialOrderRequestsBorder"
+                        MouseDown="MaterialBorder_MouseDown"
+                        MouseEnter="MaterialBorder_MouseEnter"
+                        MouseLeave="MaterialBorder_MouseLeave"
+                        Tag="MaterialsMovements"
+                        BorderThickness="0"
+                        Background="{StaticResource LeftMenuBackgroundBrush}"
+                        CornerRadius="5">
+                    <TextBlock Text="Запросы" Style="{StaticResource HeaderTextBoxStyle}" Margin="15,5"/>
+                </Border>
+            </StackPanel>
+        </Border>
+        
+        <Grid Grid.Row="2" Grid.IsSharedSizeScope="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="MaterialsGrid" Grid.Column="0" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
@@ -103,6 +132,7 @@
                         CornerRadius="5">
                     <Grid x:Name="MaterialsHeaderGrid" >
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="Info"/>
                             <ColumnDefinition SharedSizeGroup="Name"/>
                             <ColumnDefinition SharedSizeGroup="Description"/>
                             <ColumnDefinition SharedSizeGroup="UnitOfMeasure"/>
@@ -110,26 +140,25 @@
                             <ColumnDefinition SharedSizeGroup="QuanitityInStock"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource HeaderBorder}">
+                        <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource HeaderBorder}">
                             <TextBlock Text="Название" Style="{StaticResource HeaderTextBoxStyle}"/>
                         </Border>
-                        <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource HeaderBorder}">
+                        <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource HeaderBorder}">
                             <TextBlock Text="Описание" Style="{StaticResource HeaderTextBoxStyle}"/>
                         </Border>
-                        <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource HeaderBorder}">
+                        <Border Grid.Row="0" Grid.Column="3" Style="{StaticResource HeaderBorder}">
                             <TextBlock Text="Eд измерения" Style="{StaticResource HeaderTextBoxStyle}"/>
                         </Border>
-                        <Border Grid.Row="0" Grid.Column="3" Style="{StaticResource HeaderBorder}">
+                        <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource HeaderBorder}">
                             <TextBlock Text="Цена за ед" Style="{StaticResource HeaderTextBoxStyle}"/>
                         </Border>
-                        <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource HeaderBorder}">
+                        <Border Grid.Row="0" Grid.Column="5" Style="{StaticResource HeaderBorder}">
                             <TextBlock Text="Количество" Style="{StaticResource HeaderTextBoxStyle}"/>
                         </Border>
                     </Grid>
                 </Border>
 
                 <Border Grid.Row="1" Margin="5,5,10,0" BorderThickness="0"
-                        Background="{StaticResource BackgroundBrush}"
                         CornerRadius="5">
                     <ScrollViewer x:Name="Materials"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible">
                         <ItemsControl  ItemsSource="{Binding Materials}">
@@ -139,7 +168,7 @@
                                         <Grid.Resources>
                                             <Style TargetType="Border">
                                                 <Setter Property="Margin" Value="5,2"/>
-                                                <Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+                                                <Setter Property="Background" Value="{StaticResource PrimaryTaskBGBrush}"/>
                                                 <Setter Property="BorderThickness" Value=".5"/>
                                                 <Setter Property="CornerRadius" Value="2"/>
                                             </Style>
@@ -147,6 +176,7 @@
                                         </Grid.Resources>
 
                                         <Grid.ColumnDefinitions>
+                                            <ColumnDefinition SharedSizeGroup="Info"/>
                                             <ColumnDefinition SharedSizeGroup="Name"/>
                                             <ColumnDefinition SharedSizeGroup="Description"/>
                                             <ColumnDefinition SharedSizeGroup="UnitOfMeasure"/>
@@ -159,24 +189,24 @@
                                         </Grid.RowDefinitions>
 
                                         <Border Grid.Row="0" Grid.Column="0">
-                                            <StackPanel Orientation="Horizontal">
-                                                <Button Content="Info" Width="30" Height="25" 
+                                            <Button Content="Info" Width="30" Height="25" 
                                                     Style="{StaticResource LeftRoundedButtonStyle}" 
                                                     Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type UserControl}}, Path=DataContext.MaterialInfoCommand}"
                                                     CommandParameter="{Binding }"/>
-                                                <TextBlock Margin="10,5" Text="{Binding Name}" Foreground="{StaticResource TextBrush}"/>
-                                            </StackPanel>
                                         </Border>
                                         <Border Grid.Row="0" Grid.Column="1">
-                                            <TextBlock Margin="10,5" Text="{Binding Description}" Foreground="{StaticResource TextBrush}"/>
+                                            <TextBlock Margin="10,5" Text="{Binding Name}" Foreground="{StaticResource TextBrush}"/>
                                         </Border>
                                         <Border Grid.Row="0" Grid.Column="2">
-                                            <TextBlock Margin="10,5" Text="{Binding UnitOfMeasure}" Foreground="{StaticResource TextBrush}"/>
+                                            <TextBlock Margin="10,5" Text="{Binding Description}" Foreground="{StaticResource TextBrush}"/>
                                         </Border>
                                         <Border Grid.Row="0" Grid.Column="3">
-                                            <TextBlock Margin="10,5" Text="{Binding UnitPrice}" Foreground="{StaticResource TextBrush}"/>
+                                            <TextBlock Margin="10,5" Text="{Binding UnitOfMeasure}" Foreground="{StaticResource TextBrush}"/>
                                         </Border>
                                         <Border Grid.Row="0" Grid.Column="4">
+                                            <TextBlock Margin="10,5" Text="{Binding UnitPrice}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="5">
                                             <TextBlock Margin="10,5" Text="{Binding QuantityInStock}" Foreground="{StaticResource TextBrush}"/>
                                         </Border>
 
@@ -189,7 +219,7 @@
                 
             </Grid>
 
-            <Grid x:Name="MaterialMovementsGrid" Grid.Row="1" Grid.Column="1" Visibility="Collapsed">
+            <Grid x:Name="MaterialMovementsGrid" Grid.Column="1" Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
@@ -202,6 +232,7 @@
                     <Grid x:Name="MaterialMovementsHeaderGrid">
 
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="Info"/>
                             <ColumnDefinition SharedSizeGroup="Material"/>
                             <ColumnDefinition SharedSizeGroup="Type"/>
                             <ColumnDefinition SharedSizeGroup="Quantity"/>
@@ -210,23 +241,23 @@
                             <ColumnDefinition SharedSizeGroup="CreatedDate"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource HeaderBorder}">
-                            <TextBlock Text="Material" Style="{StaticResource HeaderTextBoxStyle}"/>
-                        </Border>
                         <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource HeaderBorder}">
-                            <TextBlock Text="Type" Style="{StaticResource HeaderTextBoxStyle}"/>
+                            <TextBlock Text="Материал" Style="{StaticResource HeaderTextBoxStyle}"/>
                         </Border>
                         <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource HeaderBorder}">
-                            <TextBlock Text="Quantity" Style="{StaticResource HeaderTextBoxStyle}"/>
+                            <TextBlock Text="Тип" Style="{StaticResource HeaderTextBoxStyle}"/>
                         </Border>
                         <Border Grid.Row="0" Grid.Column="3" Style="{StaticResource HeaderBorder}">
-                            <TextBlock Text="Cost" Style="{StaticResource HeaderTextBoxStyle}"/>
+                            <TextBlock Text="Количество" Style="{StaticResource HeaderTextBoxStyle}"/>
                         </Border>
                         <Border Grid.Row="0" Grid.Column="4" Style="{StaticResource HeaderBorder}">
-                            <TextBlock Text="Description" Style="{StaticResource HeaderTextBoxStyle}"/>
+                            <TextBlock Text="Стоимость" Style="{StaticResource HeaderTextBoxStyle}"/>
                         </Border>
                         <Border Grid.Row="0" Grid.Column="5" Style="{StaticResource HeaderBorder}">
-                            <TextBlock Text="Created Date" Style="{StaticResource HeaderTextBoxStyle}"/>
+                            <TextBlock Text="Описанме" Style="{StaticResource HeaderTextBoxStyle}"/>
+                        </Border>
+                        <Border Grid.Row="0" Grid.Column="6" Style="{StaticResource HeaderBorder}">
+                            <TextBlock Text="Дата Создания" Style="{StaticResource HeaderTextBoxStyle}"/>
                         </Border>
 
                     </Grid>
@@ -235,7 +266,6 @@
 
                 <Border Grid.Row="1"
                         Margin="5,5,10,0" BorderThickness="0"
-                        Background="{StaticResource BackgroundBrush}"
                         CornerRadius="5">
                     <ScrollViewer x:Name="StockMovements" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                         <ItemsControl  ItemsSource="{Binding StockMovements}">
@@ -245,13 +275,14 @@
                                         <Grid.Resources>
                                             <Style TargetType="Border">
                                                 <Setter Property="Margin" Value="5,2"/>
-                                                <Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+                                                <Setter Property="Background" Value="{StaticResource PrimaryTaskBGBrush}"/>
                                                 <Setter Property="BorderThickness" Value=".5"/>
                                                 <Setter Property="CornerRadius" Value="2"/>
                                             </Style>
                                         </Grid.Resources>
 
                                         <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" SharedSizeGroup="Info"/>
                                             <ColumnDefinition Width="Auto" SharedSizeGroup="Material"/>
                                             <ColumnDefinition Width="Auto" SharedSizeGroup="Type"/>
                                             <ColumnDefinition Width="Auto" SharedSizeGroup="Quantity"/>
@@ -264,26 +295,26 @@
                                         </Grid.RowDefinitions>
 
                                         <Border Grid.Row="0" Grid.Column="0">
-                                            <StackPanel Orientation="Horizontal">
-                                                <Button Content="Info" Width="30" Height="25" 
+                                            <Button Content="Info" Width="30" Height="25" 
                                                     Style="{StaticResource LeftRoundedButtonStyle}"/>
-                                                <TextBlock Margin="10,5" Text="{Binding Material.Name}" Foreground="{StaticResource TextBrush}"/>
-                                            </StackPanel>
                                         </Border>
                                         <Border Grid.Row="0" Grid.Column="1">
-                                            <TextBlock Margin="10,5" Text="{Binding MovementType}" Foreground="{StaticResource TextBrush}"/>
+                                            <TextBlock Margin="10,5" Text="{Binding Material.Name}" Foreground="{StaticResource TextBrush}"/>
                                         </Border>
                                         <Border Grid.Row="0" Grid.Column="2">
-                                            <TextBlock Margin="10,5" Text="{Binding Quantity}" Foreground="{StaticResource TextBrush}"/>
+                                            <TextBlock Margin="10,5" Text="{Binding MovementType}" Foreground="{StaticResource TextBrush}"/>
                                         </Border>
                                         <Border Grid.Row="0" Grid.Column="3">
-                                            <TextBlock Margin="10,5" Text="{Binding Cost}" Foreground="{StaticResource TextBrush}"/>
+                                            <TextBlock Margin="10,5" Text="{Binding Quantity}" Foreground="{StaticResource TextBrush}"/>
                                         </Border>
                                         <Border Grid.Row="0" Grid.Column="4">
-                                            <TextBlock Margin="10,5" Text="{Binding Description}" Foreground="{StaticResource TextBrush}"/>
+                                            <TextBlock Margin="10,5" Text="{Binding Cost}" Foreground="{StaticResource TextBrush}"/>
                                         </Border>
                                         <Border Grid.Row="0" Grid.Column="5">
-                                            <TextBlock Margin="10,5" Text="{Binding CreatedDate, StringFormat={}{0:d}}" Foreground="{StaticResource TextBrush}"/>
+                                            <TextBlock Margin="10,5" Text="{Binding Description}" Foreground="{StaticResource TextBrush}"/>
+                                        </Border>
+                                        <Border Grid.Row="0" Grid.Column="6">
+                                            <TextBlock Margin="10,5" Text="{Binding CreatedDate, StringFormat={}{0:dd/MM/yyyy}}" Foreground="{StaticResource TextBrush}"/>
                                         </Border>
 
                                     </Grid>
@@ -293,6 +324,14 @@
                     </ScrollViewer>
                 </Border>
                 
+            </Grid>
+
+            <Grid x:Name="PurchaseOrdersGrid" Grid.Column="2" Visibility="Collapsed">
+                <ContentControl Content="{Binding PurchaseOrderListView}" />
+            </Grid>
+
+            <Grid x:Name="MaterialOrderRequestListViewGrid" Grid.Column="2" Visibility="Collapsed">
+                <ContentControl Content="{Binding MaterialOrderRequestListView}" />
             </Grid>
         </Grid>
     </Grid>

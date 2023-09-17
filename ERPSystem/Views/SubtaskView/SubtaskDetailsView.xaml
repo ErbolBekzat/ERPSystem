@@ -13,6 +13,16 @@
     </UserControl.Resources>
     
     <Grid>
+        
+        <Grid.Resources>
+            <Style TargetType="TextBlock" x:Key="HeaderTextBoxStyle">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="Margin" Value="10,5"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+            </Style>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
@@ -285,22 +295,106 @@
             </Grid.RowDefinitions>
 
             <Border Grid.Row="0"
-                    Background="{StaticResource BackgroundBrush}"
                     CornerRadius="5"
                     Margin="5,0,5,5">
-                <Grid Margin="10">
-                    <Button x:Name="ProblemsButton" Content="Problems" Grid.Row="0" Width="70" Height="30" HorizontalAlignment="Left" Click="ProblemsButton_Click"/>
-                    <Button x:Name="MaterialsButton" Content="Materials" Grid.Row="0" Width="70" Height="30" HorizontalAlignment="Left" Margin="80,0,0,0" Click="MaterialsButton_Click"/>
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Margin="5"
+                            CornerRadius="5"
+                            Background="{StaticResource BackgroundBrush}"
+                            BorderThickness="0">
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+                            <Button x:Name="btnAddProblem" Content="Новая проблема" Width="110" Height="30" Command="{Binding AddNewProblemCommand}" HorizontalAlignment="Right"/>
+                            <Button x:Name="btnAddRequest" Content="Новый запрос" Width="110" Height="30" Margin="10,0" Command="{Binding AddMaterialOrderRequestCommand}" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </Border>
 
-                    <Button x:Name="btnAddProblem" Content="New Problem" Width="100" Height="30" Command="{Binding AddNewProblemCommand}" HorizontalAlignment="Right"/>
+                    <Border Grid.Row="1" Margin="5"
+                            CornerRadius="5"
+                            Background="{StaticResource BackgroundBrush}"
+                            BorderThickness="0">
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
+                            <Border x:Name="ProblemsBorder" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" 
+                                MouseDown="BorderButton_MouseDown"
+                                MouseEnter="BorderButton_MouseEnter"
+                                MouseLeave="BorderButton_MouseLeave"
+                                Tag="Problems"
+                                BorderThickness="0"
+                                Background="{StaticResource BackgroundBrush}"
+                                CornerRadius="5"
+                                Width="120"
+                                HorizontalAlignment="Left"
+                                    Margin="5,0">
+                                <TextBlock Text="Проблемы" Style="{StaticResource HeaderTextBoxStyle}" Margin="15,5"/>
+                            </Border>
+                            <Border x:Name="RequestsBorder" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" 
+                                MouseDown="BorderButton_MouseDown"
+                                MouseEnter="BorderButton_MouseEnter"
+                                MouseLeave="BorderButton_MouseLeave"
+                                Tag="Requests"
+                                BorderThickness="0"
+                                Background="{StaticResource LeftMenuBackgroundBrush}"
+                                CornerRadius="5"
+                                Width="100"
+                                HorizontalAlignment="Left"
+                                    Margin="5,0">
+                                <TextBlock Text="Запросы" Style="{StaticResource HeaderTextBoxStyle}" Margin="15,5"/>
+                            </Border>
+                            <Border x:Name="OrdersBorder" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" 
+                                MouseDown="BorderButton_MouseDown"
+                                MouseEnter="BorderButton_MouseEnter"
+                                MouseLeave="BorderButton_MouseLeave"
+                                Tag="Orders"
+                                BorderThickness="0"
+                                Background="{StaticResource LeftMenuBackgroundBrush}"
+                                CornerRadius="5"
+                                Width="100"
+                                HorizontalAlignment="Left"
+                                    Margin="5,0">
+                                <TextBlock Text="Заказы" Style="{StaticResource HeaderTextBoxStyle}" Margin="15,5"/>
+                            </Border>
+                            <Border x:Name="StockBorder" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" 
+                                MouseDown="BorderButton_MouseDown"
+                                MouseEnter="BorderButton_MouseEnter"
+                                MouseLeave="BorderButton_MouseLeave"
+                                Tag="Stock"
+                                BorderThickness="0"
+                                Background="{StaticResource LeftMenuBackgroundBrush}"
+                                CornerRadius="5"
+                                Width="100"
+                                HorizontalAlignment="Left"
+                                    Margin="5,0">
+                                <TextBlock Text="Склад" Style="{StaticResource HeaderTextBoxStyle}" Margin="15,5"/>
+                            </Border>
+                            <Border x:Name="MaterialsBorder" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="1" 
+                                MouseDown="BorderButton_MouseDown"
+                                MouseEnter="BorderButton_MouseEnter"
+                                MouseLeave="BorderButton_MouseLeave"
+                                Tag="PlannedMaterials"
+                                BorderThickness="0"
+                                Background="{StaticResource LeftMenuBackgroundBrush}"
+                                CornerRadius="5"
+                                Width="200"
+                                HorizontalAlignment="Left"
+                                    Margin="5,0">
+                                <TextBlock Text="Материалы по плану" Style="{StaticResource HeaderTextBoxStyle}" Margin="15,5"/>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                        
                 </Grid>
+                
             </Border>
 
 
-            <Border  Grid.Row="1"
+            <Border Grid.Row="1"
+                    x:Name="ProblemsBorderContent"
                     CornerRadius="5"
                     Margin="5">
-                <ScrollViewer x:Name="ProblemsBorder" Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <ScrollViewer  Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                     <Grid x:Name="Problems">
 
                         <ItemsControl ItemsSource="{Binding Problems}">
@@ -375,7 +469,7 @@
                 </ScrollViewer>
             </Border>
 
-            <Border x:Name="MaterialsBorder" Grid.Row="1" Visibility="Collapsed"
+            <Border x:Name="MaterialsBorderContent" Grid.Row="1" Visibility="Collapsed"
                     Background="{StaticResource BackgroundBrush}"
                     CornerRadius="5"
                     Margin="5">
@@ -422,6 +516,31 @@
                         </Grid>
                     </Grid>
                 </ScrollViewer>
+            </Border>
+
+            <Border Grid.Row="1"
+                    x:Name="RequestsBorderContent"
+                    CornerRadius="5"
+                    Margin="5"
+                    Visibility="Collapsed">
+                <ContentControl Content="{Binding MaterialOrderRequestListView}" />
+                
+            </Border>
+
+            <Border Grid.Row="1"
+                    x:Name="OrdersBorderContent"
+                    CornerRadius="5"
+                    Margin="5"
+                    Visibility="Collapsed">
+                <ContentControl Content="{Binding PurchaseOrderListView}" />
+            </Border>
+
+            <Border Grid.Row="1"
+                    x:Name="StockBorderContent"
+                    CornerRadius="5"
+                    Margin="5"
+                    Visibility="Collapsed">
+                <TextBlock Text="Склад" Style="{StaticResource HeaderTextBoxStyle}" Margin="15,5"/>
             </Border>
 
         </Grid>

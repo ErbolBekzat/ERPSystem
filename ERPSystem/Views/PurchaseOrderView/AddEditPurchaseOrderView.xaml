@@ -1,0 +1,92 @@
+﻿<Window x:Class="ERPSystem.Views.PurchaseOrderView.AddEditPurchaseOrderView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ERPSystem.Views.PurchaseOrderView"
+        mc:Ignorable="d"
+        Title="AddEditPurchaseOrderView" Height="450" Width="450"
+        Background="{StaticResource LeftMenuBackgroundBrush}"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBlock" x:Key="HeaderTextBlock">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Margin" Value="15,10"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="TextBlock" x:Key="FormTextBlockStyle">
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="Margin" Value="15,10"/>
+                <Setter Property="TextAlignment" Value="Left"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Width" Value="170"/>
+            </Style>
+            <Style TargetType="TextBox" x:Key="FormTextBoxStyle">
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0.5"/>
+                <Setter Property="BorderBrush" Value="{StaticResource LineBrush}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+                <Setter Property="CaretBrush" Value="{StaticResource TextBrush}"/>
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="MinWidth" Value="100"/>
+                <Setter Property="Margin" Value="0,10,10,10"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="{StaticResource BackgroundBrush}"
+                Margin="10"
+                CornerRadius="5"
+                Grid.Row="0">
+            <TextBlock Text="Новый заказ на покупку" HorizontalAlignment="Center"
+                       Style="{StaticResource HeaderTextBlock}" FontSize="18"/>
+        </Border>
+
+        <Border Background="{StaticResource BackgroundBrush}"
+                Margin="10"
+                CornerRadius="5"
+                Grid.Row="1">
+            <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="0,20">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Material" Style="{StaticResource FormTextBlockStyle}"/>
+                    <TextBlock Text="{Binding PurchaseOrder.MaterialName}" Style="{StaticResource FormTextBlockStyle}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Количество" Style="{StaticResource FormTextBlockStyle}"/>
+                    <TextBlock Text="{Binding PurchaseOrder.MaterialAmount}" Style="{StaticResource FormTextBlockStyle}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Description" Style="{StaticResource FormTextBlockStyle}"/>
+                    <TextBox Text="{Binding PurchaseOrder.Description}" Style="{StaticResource FormTextBoxStyle}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Дата заказа" Style="{StaticResource FormTextBlockStyle}"/>
+                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding PurchaseOrder.OrderDate}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Ожидаемая дата получения" Style="{StaticResource FormTextBlockStyle}"/>
+                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding PurchaseOrder.ExpectedDeliveryDate}"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Border Background="{StaticResource BackgroundBrush}"
+                Margin="10"
+                CornerRadius="5"
+                Grid.Row="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Добавить" Width="100" Height="30" Margin="10" Command="{Binding AddOrderCommand}"/>
+                <Button Content="Отмена" Width="100" Height="30" Margin="10" Command="{Binding CancelCommand}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

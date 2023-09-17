@@ -17,7 +17,8 @@ namespace ERPSystem.Data
         public DbSet<Material> Materials { get; set; }
         public DbSet<TaskMaterials> TaskMaterials { get; set; }
         public DbSet<StockMovement> StockMovements { get; set; }
-        public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+        public DbSet<MaterialPurchaseOrder> PurchaseOrders { get; set; }
+        public DbSet<MaterialOrderRequest> MaterialOrderRequests { get; set; }
 
         public DbSet<Project> Projects { get; set; }
         public DbSet<Block> Blocks { get; set; }
@@ -43,6 +44,7 @@ namespace ERPSystem.Data
                 optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=ERPSystem;Username=postgres;Password=admin;TimeZone=+06");
                 //optionsBuilder.UseNpgsql("Host=master.0c948276-0413-4a48-aa82-4048fde9d591.c.dbaas.selcloud.ru;Port=5432;" +
                 //    "Database=ERPSystem;Username=erbol;Password=admin;SSL Mode=Prefer;Trust Server Certificate=true;");
+                //optionsBuilder.UseNpgsql("Host=surus.db.elephantsql.com;Port=5432;Database=xddqiaga;Username=xddqiaga;Password=ooP0DzQn8c7vGlxB2Z3-C9x1VTC4XXso;");
 
 
             }
@@ -212,6 +214,26 @@ namespace ERPSystem.Data
 
             modelBuilder.Entity<User>()
             .Property(e => e.LastOnline)
+            .HasColumnType("timestamp without time zone");
+
+            modelBuilder.Entity<MaterialPurchaseOrder>()
+            .Property(e => e.OrderDate)
+            .HasColumnType("timestamp without time zone");
+
+            modelBuilder.Entity<MaterialPurchaseOrder>()
+            .Property(e => e.ExpectedDeliveryDate)
+            .HasColumnType("timestamp without time zone");
+
+            modelBuilder.Entity<MaterialPurchaseOrder>()
+            .Property(e => e.ReceivedDate)
+            .HasColumnType("timestamp without time zone");
+
+            modelBuilder.Entity<MaterialOrderRequest>()
+            .Property(e => e.RequestedDate)
+            .HasColumnType("timestamp without time zone");
+
+            modelBuilder.Entity<MaterialOrderRequest>()
+            .Property(e => e.OrderedDate)
             .HasColumnType("timestamp without time zone");
         }
     }

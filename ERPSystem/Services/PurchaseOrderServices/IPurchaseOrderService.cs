@@ -9,11 +9,11 @@ namespace ERPSystem.Services.PurchaseOrderServices
 {
     public interface IPurchaseOrderService
     {
-        IEnumerable<PurchaseOrder> GetAllPurchaseOrders();
-        IEnumerable<PurchaseOrder> GetAllPurchaseOrdersWithStockId(int stockId);
-        PurchaseOrder GetPurchaseOrderById(int purchaseOrderId);
-        void CreatePurchaseOrder(PurchaseOrder purchaseOrder);
-        void EditPurchaseOrder(PurchaseOrder purchaseOrder);
+        IEnumerable<MaterialPurchaseOrder> GetAllPurchaseOrders();
+        IEnumerable<MaterialPurchaseOrder> GetAllPurchaseOrdersWithStockId(int stockId);
+        MaterialPurchaseOrder GetPurchaseOrderById(int purchaseOrderId);
+        void CreatePurchaseOrder(MaterialPurchaseOrder purchaseOrder);
+        void EditPurchaseOrder(MaterialPurchaseOrder purchaseOrder);
         void DeletePurchaseOrder(int purchaseOrderId);
     }
 }

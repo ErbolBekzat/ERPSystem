@@ -35,16 +35,6 @@ namespace ERPSystem.Views.ProjectView
             AddProjectCommand = new RelayCommand(OnAddProject);
             NavToStockCommand = new RelayCommand<Project>(OnNavToStock);
             NavToTasksCommand = new RelayCommand<Project>(OnNavToTasks);
-
-            //CurrentUser.Instance.Id = 1;
-            //CurrentUser.Instance.Password = "hashedPassword";
-            //CurrentUser.Instance.Salt = new byte[] { 1, 2, 3, 4 };
-            //CurrentUser.Instance.UserRole = 2;
-            //CurrentUser.Instance.FirstName = "John";
-            //CurrentUser.Instance.LastName = "Doe";
-            //CurrentUser.Instance.Email = "john.doe@example.com";
-            //CurrentUser.Instance.Phone = "123-456-7890";
-            //CurrentUser.Instance.LastOnline = DateTime.Now;
         }
 
 

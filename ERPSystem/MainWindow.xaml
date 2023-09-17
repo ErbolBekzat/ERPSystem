@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280"
         WindowStyle="None"
-        Background="Black">
+        Background="{StaticResource LeftMenuBackgroundBrush}"
+        WindowState="Maximized">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -30,7 +31,8 @@
 
                     <Button Click="Maximize_Click" Foreground="AliceBlue"
                         Height="25" Width="25" Margin="10, 0, 0, 0"
-                        Style="{StaticResource ButtonWithoutBorder}">
+                        Style="{StaticResource ButtonWithoutBorder}"
+                            Visibility="Collapsed">
                         <Image Source="/Icons/MaximizeIcon.png" />
                     </Button>
 
@@ -59,7 +61,7 @@
                     <Border x:Name="Navigator" Height="30" Width="100" Margin="0,140,0,0" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Center"
                     BorderBrush="{StaticResource LineBrush}" BorderThickness="0">
                         <Grid>
-                            <Rectangle Fill="{StaticResource BackgroundBrush}" Width="20" HorizontalAlignment="Right"/>
+                            <Rectangle Fill="{StaticResource BackgroundBrush}" Width="20" HorizontalAlignment="Right" RadiusX="10" RadiusY="10"/>
                         </Grid>
                     </Border>
 
@@ -75,26 +77,26 @@
                             Style="{StaticResource ButtonWithoutBorder}"/>
 
                     <Button x:Name="ProjectButton"
-                    Content="Проекты"
-                    Width="80"
-                    Height="30"                  
-                    Foreground="#CBF7ED"
-                    Margin="0, 140, 0, 0"
-                    VerticalAlignment="Top"
-                    Command="{Binding NavCommand}"
-                    CommandParameter="ProjectListView"
-                    Style="{StaticResource ButtonWithoutBorder}"/>
+                            Content="Проекты"
+                            Width="80"
+                            Height="30"                  
+                            Foreground="#CBF7ED"
+                            Margin="0, 140, 0, 0"
+                            VerticalAlignment="Top"
+                            Command="{Binding NavCommand}"
+                            CommandParameter="ProjectListView"
+                            Style="{StaticResource ButtonWithoutBorder}"/>
 
                     <Button x:Name="WorkerButton"
-                    Content="Рабочие"
-                    Width="80"
-                    Height="30"                  
-                    Foreground="#CBF7ED"
-                    Margin="0, 180, 0, 0"
-                    VerticalAlignment="Top"
-                    Command="{Binding NavCommand}"
-                    CommandParameter="WorkerListView"
-                    Style="{StaticResource ButtonWithoutBorder}"/>
+                        Content="Рабочие"
+                        Width="80"
+                        Height="30"                  
+                        Foreground="#CBF7ED"
+                        Margin="0, 180, 0, 0"
+                        VerticalAlignment="Top"
+                        Command="{Binding NavCommand}"
+                        CommandParameter="WorkerListView"
+                        Style="{StaticResource ButtonWithoutBorder}"/>
 
                 </Grid>
             </Border>

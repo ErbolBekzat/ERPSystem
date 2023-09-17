@@ -25,6 +25,12 @@
     <Compile Update="Views\CustomCalendar\Calendar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\MaterialOrderRequestView\AddEditMaterialOrderRequestView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MaterialOrderRequestView\MaterialOrderRequestListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\MaterialView\AddEditMaterialView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -49,6 +55,12 @@
     <Compile Update="Views\ProjectView\ProjectListView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\PurchaseOrderView\AddEditPurchaseOrderView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PurchaseOrderView\PurchaseOrderListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\RoleView\AddEditRoleView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -68,9 +80,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\TaskMaterialView\AddEditTaskMaterialFormView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\TaskView\AddEditTaskView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\TaskView\DraftView.xaml.cs">
@@ -126,6 +135,9 @@
     <Page Update="Styles\TabControlStyle.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Styles\ThemeDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\BlockView\AddEditBlockWindowView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -142,6 +154,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\CustomCalendar\Calendar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MaterialOrderRequestView\AddEditMaterialOrderRequestView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MaterialOrderRequestView\MaterialOrderRequestListView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MaterialView\AddEditMaterialView.xaml">
@@ -168,6 +186,12 @@
     <Page Update="Views\ProjectView\ProjectListView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\PurchaseOrderView\AddEditPurchaseOrderView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PurchaseOrderView\PurchaseOrderListView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\RoleView\AddEditRoleView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -187,9 +211,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\TaskMaterialView\AddEditTaskMaterialFormView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\TaskView\AddEditTaskView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\TaskView\DraftView.xaml">
